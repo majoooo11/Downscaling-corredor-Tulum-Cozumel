@@ -1,0 +1,2 @@
+event_id,peak_date,sensor,N_cells_inside,fraction_ocean_inside_pct,mean_ae_inside,median_ae_inside,std_ae_inside,N_cells_outside,fraction_ocean_outside_pct,mean_ae_outside,median_ae_outside,std_ae_outside,difference_inside_minus_outside
+E4,2015-08-03,VIIRS,2011,38.09433604849403,0.3910591745400298,0.39,0.00307731940072053,3268,61.905663951505964,0.39064871481028157,0.39,0.0024629894838867263,0.00041045972974823597

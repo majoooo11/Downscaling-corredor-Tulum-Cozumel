@@ -1,0 +1,18 @@
+# Dependencias reales del entorno virtual (.venv) - Python 3.11.16 arm64
+# Generado durante la fase de documentación formal del pipeline (2026-08-24)
+
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.5
+xarray==2026.7.0
+netCDF4==1.7.4
+h5py==3.16.0
+h5netcdf==1.8.1
+matplotlib==3.11.1
+pyproj==3.7.2
+s3fs==2026.7.0
+zarr==3.1.6
+requests==2.34.2
+urllib3==2.7.0
+cftime==1.6.5
+dask==2026.7.1

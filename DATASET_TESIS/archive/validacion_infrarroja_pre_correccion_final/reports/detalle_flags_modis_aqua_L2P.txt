@@ -1,0 +1,22 @@
+DOCUMENTACIÓN DE FLAGS Y ATRIBUTOS — MODIS AQUA L2P v2019.0
+============================================================
+
+1. PRODUCTO:
+   Dataset: MODIS_A-JPL-L2P-v2019.0 (DOI: 10.5067/GHMDA-2PJ19)
+   Nivel: Level 2P (Swath nativo recortado espacialmente)
+   Plataforma: Aqua | Sensor: MODIS
+   Resolución: ~1 km
+   Unidades SST: Kelvin (Convertidas a Celsius: SST_C = SST_K - 273.15)
+
+2. VARIABLE quality_level:
+   flag_values: [0, 1, 2, 3, 4, 5]
+   flag_meanings: no_data bad_data worst_quality low_quality acceptable_quality best_quality
+   Criterio High Quality: quality_level == 5 (best_quality / clear-sky)
+   Criterio Nubes/Inválido: quality_level == 1 (bad_data / cloud mask rejection)
+
+3. VARIABLE l2p_flags (Bitmask 16-bit):
+   bit 1 (0x0001): microwave
+   bit 2 (0x0002): land
+   bit 3 (0x0004): ice
+   bit 4 (0x0008): lake
+   bit 5 (0x0010): river

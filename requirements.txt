@@ -1,0 +1,31 @@
+# =============================================================================
+# Dependencias directas reproducibles para el proyecto de tesis:
+# SST Downscaling Framework for the Tulum–Cozumel Reef Corridor
+# Entorno validado en: macOS Apple Silicon (arm64) / Python 3.11.16
+# =============================================================================
+
+# --- Computación científica y álgebra de arreglos ---
+numpy==2.4.6
+scipy==1.17.1
+pandas==3.0.5
+
+# --- Datos multidimensionales y formatos NetCDF / Zarr ---
+xarray==2026.7.0
+netCDF4==1.7.4
+h5py==3.16.0
+h5netcdf==1.8.1
+cftime==1.6.5
+
+# --- Acceso a datos en la nube (AWS S3 Zarr y NASA Earthdata) ---
+s3fs==2026.7.0
+zarr==3.1.6
+dask==2026.7.1
+earthaccess==0.17.0
+
+# --- Geodesia, proyecciones cartográficas y visualización ---
+pyproj==3.7.2
+matplotlib==3.11.1
+
+# --- Clientes HTTP y APIs satelitales ---
+requests==2.34.2
+earthengine-api==1.7.41

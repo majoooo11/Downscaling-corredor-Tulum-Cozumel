@@ -1,0 +1,10 @@
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]
+python-interpreter-path = "/Users/mariajosenande/Documents/Lole/.venv/bin/python"
+search-path = [
+    "/Users/mariajosenande/Documents/Lole",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS",
+]
+preset = "basic"

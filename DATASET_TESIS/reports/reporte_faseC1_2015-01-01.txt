@@ -1,0 +1,67 @@
+============================================================
+FASE C.1 — ARMONIZACIÓN OISST → MUR
+Fecha: 2015-01-01
+============================================================
+
+MUR:
+dimensiones: 86 × 96
+unidades: °C (convertido desde Kelvin: SST_C = SST_K - 273.15)
+mín: 26.4960 °C
+máx: 27.3900 °C
+media: 26.9484 °C
+
+OISST original:
+resolución: 0.25° (~27 km)
+dimensiones halo: 7 × 7 (Lat: [19.62°, 21.12°], Lon: [-87.88°, -86.38°])
+unidades: °C
+mín: 27.0600 °C
+máx: 27.1700 °C
+media: 27.1300 °C
+
+SST_BIL:
+dimensiones: 86 × 96
+mín: 27.0403 °C
+máx: 27.1943 °C
+media: 27.1389 °C
+
+Coordenadas:
+error max lat: 0.00e+00°
+error max lon: 0.00e+00°
+
+Máscara:
+celdas oceánicas esperadas: 5280
+celdas válidas MUR: 5280
+celdas válidas BIL: 3987
+celdas válidas comunes: 3987
+
+Residual:
+N: 3987
+mín: -0.6286 °C
+máx: 0.2376 °C
+media: -0.1773 °C
+mediana: -0.1813 °C
+std: 0.1540 °C
+P1: -0.5834 °C
+P5: -0.4218 °C
+P95: 0.0636 °C
+P99: 0.1535 °C
+RMSE del residual: 0.2348 °C
+
+BASELINE E0 — SOLO 2015-01-01
+
+RMSE: 0.2348 °C
+MAE: 0.1942 °C
+Bias: 0.1773 °C (mean(BIL - MUR))
+R²: -1.3322
+N: 3987
+
+Identidad residual:
+error máximo: 9.46e-07 °C
+
+Artefactos visuales detectados:
+Ninguno detectado. La interpolación bilineal con halo espacial de 0.5° eliminó completamente discontinuidades de borde. Los gradientes espaciales en el canal de Cozumel y la costa continental muestran una transición suave y continua. El residual reproduce la estructura fina de alta resolución preservando las propiedades físicas del producto MUR.
+
+RESULTADO:
+
+FASE C.1 APROBADA
+============================================================

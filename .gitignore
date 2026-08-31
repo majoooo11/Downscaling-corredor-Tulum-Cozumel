@@ -1,0 +1,43 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# macOS
+.DS_Store
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Datos pesados
+*.nc
+*.nc4
+*.zarr
+*.h5
+*.hdf5
+
+# Carpetas de datos crudos
+MUR_ZARR/
+OISST/
+GEBCO/
+VALIDACION_SATELITAL/
+
+# Salidas grandes
+DATASET_TESIS/outputs/
+DATASET_TESIS/analysis_error_historico/
+
+# Cache
+.cache/
+.pytest_cache/

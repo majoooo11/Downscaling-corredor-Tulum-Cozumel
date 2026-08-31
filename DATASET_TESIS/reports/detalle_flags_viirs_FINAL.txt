@@ -1,0 +1,26 @@
+DOCUMENTACIÓN OFICIAL DE FLAGS — VIIRS S-NPP L2P v2.80 (ACSPO)
+=================================================================
+
+1. ESPECIFICACIÓN DEL PRODUCTO:
+   Dataset: VIIRS_NPP-STAR-L2P-v2.80 (DOI: 10.5067/GHVRS-2PO28)
+   Sensor: VIIRS | Plataforma: Suomi-NPP
+   Nivel: Level 2P (Swath nativo ~742 m en nadir)
+   Unidades SST: Kelvin (Convertidas a Celsius en análisis: SST_C = SST_K - 273.15)
+
+2. VARIABLE quality_level:
+   flag_values: [0, 1, 2, 3, 4, 5]
+   flag_meanings: missing invalid not_used not_used not_used clear
+   quality_level == 5: Píxeles despejados (Clear / High Quality recomendado para validación)
+   quality_level == 1: Píxeles no válidos / rechazados por el algoritmo ACSPO
+
+3. VARIABLE l2p_flags (Bitmask):
+   bit01 (1): microwave (0=IR, 1=microwave)
+   bit02 (2): land (0=ocean, 1=land)
+   bit03 (4): ice (0=no ice, 1=ice)
+   bit09 (256): radiance invalid (0=valid, 1=invalid)
+   bit10 (512): day/night (0=night, 1=day)
+   bit11 (1024): land ACSPO (0=ocean, 1=land)
+   bit12 (2048): twilight (0=good quality, 1=degraded)
+   bit13 (4096): glint (0=no glint, 1=glint)
+   bit14 (8192): snow/ice (0=no snow/ice, 1=snow/ice)
+   bits15-16 (-16384): ACSPO cloud/quality mask
