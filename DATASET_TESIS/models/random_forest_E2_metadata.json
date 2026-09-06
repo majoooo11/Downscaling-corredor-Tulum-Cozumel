@@ -1,0 +1,72 @@
+{
+  "date_executed": "2026-09-05 16:30:06",
+  "experiment": "Fase D.2 / Experimento E2 (Random Forest Baseline)",
+  "features": [
+    "sst_bil",
+    "depth",
+    "distance_coast_km",
+    "ocean_fraction",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "target": "residual",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": 20,
+    "min_samples_leaf": 5,
+    "max_features": 1.0,
+    "bootstrap": true,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "random_state": 42,
+  "n_train_original": 13498403,
+  "n_train_used": 1349840,
+  "sampling_method": "Hamilton / Largest Remainder Proportional Sampling (10.0%)",
+  "software_versions": {
+    "python": "3.11.16",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.6.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6"
+  },
+  "training_time_sec": 82.11,
+  "memory_peak_mb": 525.81,
+  "validation_metrics": {
+    "n_obs": 3853670,
+    "rmse_e0": 0.3356849253177643,
+    "rmse_rf": 0.4138103425502777,
+    "delta_rmse": 0.07812541723251343,
+    "improvement_rmse_pct": -23.273436291057383,
+    "mae_e0": 0.26360586285591125,
+    "mae_rf": 0.32316744327545166,
+    "delta_mae": 0.059561580419540405,
+    "improvement_mae_pct": -22.594937674848744,
+    "bias_e0": 0.025086890906095505,
+    "bias_rf": -0.04484399035573006,
+    "r2_e0": 0.9002070426940918,
+    "r2_rf": 0.8483511805534363,
+    "pct_days_impr_rmse": 32.465753424657535,
+    "pct_days_impr_mae": 33.6986301369863,
+    "pct_cells_impr_rmse": 0.0,
+    "verdict": "SIN MEJORA"
+  },
+  "test_files_opened": 0,
+  "opened_parquet_files": [
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2015.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2018.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2021.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/validation/validation_2022.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/validation/validation_2023.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2015.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2016.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2017.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2018.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2019.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2020.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/train/train_2021.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/validation/validation_2022.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_dataset/validation/validation_2023.parquet",
+    "/Users/mariajosenande/Documents/Lole/DATASET_TESIS/ml_results/random_forest_E2/predictions/validation_predictions.parquet"
+  ]
+}

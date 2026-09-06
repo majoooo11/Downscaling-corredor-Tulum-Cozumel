@@ -1,0 +1,20 @@
+metric_id,metric_name,phase,period,training_window,evaluation_window,source_file,source_table,source_column,aggregation,value,units,status,notes
+D32_2021_RMSE_B0,RMSE B0,D32,2021,2015–2020,2021,E3b_D32/tables/model_summary.csv,model_summary,RMSE_SST,global_model_b0,0.359493,degC,CANONICAL,D32 master table canonical baseline
+D32_2021_RMSE_C0,RMSE C0,D32,2021,2015–2020,2021,E3b_D32/tables/model_summary.csv,model_summary,RMSE_SST,global_model_c0,0.349274,degC,CANONICAL,D32 master table canonical model
+D32_2021_IMPR_RMSE,Improvement RMSE,D32,2021,2015–2020,2021,E3b_D32/tables/model_summary.csv,model_summary,Impr_RMSE_vs_B0_pct,global_relative,2.84243,%,CANONICAL,D32 holdout relative gain
+D33_VAL_RMSE_B0,RMSE B0,D33,2022–2023,2015–2021,2022–2023,E3b_D33_external_validation/tables/validation_summary.csv,validation_summary,rmse_b0,combined_2yr,0.335666,degC,CANONICAL,External validation baseline
+D33_VAL_RMSE_C0,RMSE C0,D33,2022–2023,2015–2021,2022–2023,E3b_D33_external_validation/tables/validation_summary.csv,validation_summary,rmse_c0,combined_2yr,0.323838,degC,CANONICAL,External validation frozen C0 model
+D33_VAL_IMPR_RMSE,Improvement RMSE,D33,2022–2023,2015–2021,2022–2023,E3b_D33_external_validation/tables/validation_summary.csv,validation_summary,improvement_rmse_pct,combined_2yr,3.5237,%,CANONICAL,External validation relative gain
+D35_TEST_RMSE_B0,RMSE B0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,RMSE_B0,combined_test,0.357317,degC,CANONICAL,Final test baseline RMSE
+D35_TEST_RMSE_C0,RMSE C0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,RMSE_C0,combined_test,0.331502,degC,CANONICAL,Final test refit C0 model RMSE
+D35_TEST_IMPR_RMSE,Improvement RMSE,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,Improvement_RMSE_pct,combined_test,7.2247,%,CANONICAL,Final test relative gain (+7.2247%)
+D35_TEST_MAE_B0,MAE B0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,MAE_B0,combined_test,0.272713,degC,CANONICAL,Final test baseline MAE
+D35_TEST_MAE_C0,MAE C0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,MAE_C0,combined_test,0.256325,degC,CANONICAL,Final test refit C0 model MAE
+D35_TEST_BIAS_B0,Bias B0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,Bias_B0,combined_test,-0.062425,degC,CANONICAL,Final test baseline mean error
+D35_TEST_BIAS_C0,Bias C0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,Bias_C0,combined_test,-0.014197,degC,CANONICAL,Final test refit C0 mean error
+D35_TEST_R2_SST_B0,R2 SST B0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/yearly_metrics.csv,yearly_metrics,R2_SST_B0,combined_test,0.892661,fraction,CANONICAL,Bilineal SST explained variance
+D35_TEST_R2_SST_C0,R2 SST C0,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/yearly_metrics.csv,yearly_metrics,R2_SST_C0,combined_test,0.90761,fraction,CANONICAL,E3b-C0 reconstructed SST explained variance
+D35_TEST_R2_RESIDUAL,R2 Residual,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,R2_RESIDUAL,combined_test,0.112175,fraction,CANONICAL,Residual variance explained (11.22%)
+D35_TEST_SIGN_ACC,Sign Accuracy,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,sign_accuracy_pct,combined_test,63.79,%,CANONICAL,Overall residual sign accuracy
+D35_TEST_MAJORITY_SIGN,Majority Sign Baseline,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,majority_sign_baseline_pct,combined_test,52.45,%,CANONICAL,Prevalence of majority negative sign
+D35_TEST_BALANCED_SIGN,Balanced Sign Accuracy,D35,2024–2025,2015–2023,2024–2025,E3b_D35_final_test/tables/final_test_summary.csv,final_test_summary,balanced_sign_accuracy_pct,combined_test,63.27,%,CANONICAL,Arithmetic mean of positive/negative sensitivities

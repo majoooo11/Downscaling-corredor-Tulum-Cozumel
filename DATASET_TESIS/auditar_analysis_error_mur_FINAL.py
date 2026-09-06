@@ -605,12 +605,12 @@ def generate_figures(df_daily: pd.DataFrame, df_events: pd.DataFrame, ds_ae: xr.
 
     ax1.set_ylabel("RMSE Discrepancia (°C)", fontsize=11, fontweight="bold")
     ax1.set_title("Serie Temporal Completa 2015–2025: Discrepancia MUR–BIL vs Incertidumbre MUR (N = 4018 días)", fontsize=12, fontweight="bold", pad=10)
-    ax1.legend(loc="upper left", framealpha=0.9, fontsize=8.5)
+    ax1.legend(loc="upper right", framealpha=0.9, fontsize=8.5)
     ax1.grid(True)
 
     ax2.set_ylabel("Incertidumbre MUR (°C)", fontsize=11, fontweight="bold")
     ax2.set_xlabel("Fecha", fontsize=11, fontweight="bold")
-    ax2.legend(loc="upper left", framealpha=0.9, fontsize=8.5)
+    ax2.legend(loc="lower right", framealpha=0.9, fontsize=8.5)
     ax2.grid(True)
 
     ax2.xaxis.set_major_locator(mdates.YearLocator(1))

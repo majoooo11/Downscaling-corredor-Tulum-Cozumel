@@ -1,7 +1,7 @@
 # AUDITORÍA FINAL DE LA VARIABLE `analysis_error` EN MUR v4.1 (2015–2025)
 
 - **Estado:** DEFINITIVA Y COMPLETA
-- **Fecha de Generación:** 2026-08-31 14:39:51 UTC
+- **Fecha de Generación:** 2026-08-31 17:20:40 UTC
 - **Periodo Evaluado:** 2015-01-01 a 2025-12-31 ($N = 4018$ días continuos)
 - **Cobertura Temporal:** 100.0% (0 fechas faltantes, 0 duplicados)
 - **Dominio Espacial:** Corredor Tulum–Cozumel (Lat: 19.90°N a 20.75°N, Lon: -87.60°W a -86.65°W, 5279 celdas oceánicas)

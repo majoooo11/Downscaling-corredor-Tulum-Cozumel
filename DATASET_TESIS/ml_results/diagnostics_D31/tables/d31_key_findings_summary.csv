@@ -1,0 +1,9 @@
+dimension,comparison,baseline_metric,model_metric,gain,takeaway
+Climatological Baselines,B3 (Annual Harmonics OLS) vs B0,0.359491 °C,0.358692 °C,+0.2223%,Rigid climatological corrections explain only a small fraction of residual variance (< 0.25%).
+Tabular Core (Bathymetry + Phase),"A4 (sst_bil, doy, depth) vs B0",0.359491 °C,0.341734 °C,+4.9395%,"Annual harmonic phase and GEBCO depth contain substantial predictive information (+4.94% RMSE, +6.49% MAE)."
+Additional Static Features,"A5 (A4 + distance, ocean_fraction) vs A4",0.341734 °C,0.341929 °C,-0.0571%,Distance to coast and ocean fraction do not provide incremental skill once depth is present.
+Local Spatial Descriptors (No Depth),E-DIAG-SPATIAL vs E-DIAG-BASE,0.345326 °C,0.342120 °C,+0.9286%,"Small incremental gain (+0.93%) over weak baseline without depth, but below the 1.00% threshold."
+Local Spatial Descriptors (With Depth),E-DIAG-SPATIAL-PLUS vs A4,0.341734 °C,0.342679 °C,-0.2764%,Spatial context does not outperform tabular core once depth is included; bathymetry captures key spatial structure.
+Magnitude Heterogeneity,Low-residual (P0-P50) vs Intermediate (P75-P90),P0-P50: 0.1164 °C,P0-P50: 0.1360 °C,P0-P50: -16.81% | P75-P90: +8.21%,"Heterogeneous skill: model degrades when B0 is already close to MUR, with peak gains at intermediate-high |R|."
+Prospective Discrimination,"Large Residual Events (P90, P95, P99)","Prevalence: 12.23%, 5.93%, 1.52%","AUROC: 0.52-0.54 (P90), 0.38-0.57 (P99)",Enrichment ~1.1–1.3x,Prospective discrimination of large residual events is weak and insufficient for an operational gating strategy.
+Temporal Memory of True Residual,Autocorrelation of R(t),Lag 0: 1.0000,"Lag 1: 0.6853, Lag 2: 0.3622, Lag 3: 0.2206",Short-lag persistence,"True residual field exhibits short-lag persistence, motivating causal temporal experiments in D32."

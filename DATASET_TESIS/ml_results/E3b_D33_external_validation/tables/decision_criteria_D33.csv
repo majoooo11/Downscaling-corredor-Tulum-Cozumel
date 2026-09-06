@@ -1,0 +1,9 @@
+rule_id,criterion,required,observed,satisfied
+1,Improvement_RMSE_2022_2023 >= +1.00%,>= +1.00%,+3.5237%,True
+2,MAE_C0 <= MAE_B0,<= 0.263594 °C,0.254457 °C,True
+3,CI95 superior de DeltaRMSE < 0,< 0.0000,-0.007224 °C,True
+4,Improvement_2022 > 0,> 0.00%,+2.2375%,True
+5,Improvement_2023 > 0,> 0.00%,+4.6298%,True
+6,months_improved >= 18 de 24,>= 18,16 / 24 (66.7%),False
+7,pct_cells_improved >= 75%,>= 75.0%,90.14% (4755/5275),True
+8,DICTAMEN FINAL D33,Deterministic,D33-B,True

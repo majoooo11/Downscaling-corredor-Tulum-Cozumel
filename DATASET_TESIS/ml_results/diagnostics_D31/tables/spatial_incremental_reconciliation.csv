@@ -1,0 +1,6 @@
+model,features,RMSE,comparison_reference,absolute_delta_RMSE,relative_gain_pct,interpretation
+B0 (Bilineal E0),none (R_hat=0),0.3594914123400789,Self,0.0,0.0,Línea base sin aprendizaje
+E-DIAG-BASE,"sst_bil, doy_sin, doy_cos",0.3453263746037469,B0,-0.014165037736332042,3.94029933681195,Base tabular sin batimetría (+3.94% vs B0)
+E-DIAG-SPATIAL,"sst_bil, doy_sin, doy_cos, grad_mag, local_std, local_contrast",0.3421196421746218,E-DIAG-BASE,-0.0032067324291250587,0.9286091839364142,Ganancia espacial local sobre base débil sin depth (+0.93% < 1.0%)
+A4 (CORE Tabular),"sst_bil, doy_sin, doy_cos, depth",0.34173425373268673,B0,-0.017757158607392187,4.939522335680696,Mejor núcleo tabular parsimonioso (+4.94% vs B0)
+E-DIAG-SPATIAL-PLUS,"sst_bil, doy_sin, doy_cos, depth, grad_mag, local_std, local_range, local_contrast",0.3426789264855313,A4,0.0009446727528445442,-0.2764349030060918,Contexto espacial no supera a A4 una vez que se incluye depth (-0.28% vs A4)

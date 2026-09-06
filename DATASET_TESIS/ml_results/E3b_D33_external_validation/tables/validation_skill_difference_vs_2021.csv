@@ -1,0 +1,2 @@
+period_holdout,improvement_rmse_2021_pct,period_validation,improvement_rmse_val_pct,validation_skill_difference_vs_2021_pp,description,methodological_note
+2021 Diagnostic Holdout,2.84243,2022–2023 Combined External Validation,3.523712671440489,0.6812826714404894,Difference in relative skill between the 2021 diagnostic holdout and the 2022–2023 external validation.,"Because the pre-validation model was refitted using 2015–2021, this difference is descriptive and should not be interpreted as a pure generalization gap for an identical fitted estimator."

@@ -1,0 +1,17 @@
+order,stage,substage,purpose,input,output,decision,status
+1,Stage A,A.1–A.3,Adquisición y auditoría de datos primarios,"Archivos NetCDF de MUR, OISST y GEBCO","Datos decenales verificados (4,018 días)",Aprobar suficiencia e integridad temporal,COMPLETED
+2,Stage B,B,Definición de cuadrícula espacial maestra,Límites geográficos del corredor Tulum–Cozumel,Grilla cartesiana regular de 86 × 96 celdas a 0.01°,Adoptar malla de MUR como referencia única,COMPLETED
+3,Stage B,B.1,Máscara oceánica corregida y covariables,MUR land/ocean mask y GEBCO bathymetry,"ocean_mask_final (5,279 celdas marinas)",M_final = M_MUR AND (ocean_fraction >= 0.5),COMPLETED
+4,Stage C,C.1,Prueba inicial de interpolación bilineal,MUR y OISST para 2015-01-01,"Identificación de 1,292 NaNs costeros",Formular soporte matemático costero,COMPLETED
+5,Stage C,C.1b,Diagnóstico y comparación de estrategias,OISST con 20 nodos terrestres en halo,Estrategia A vs Estrategia B (MAE 0.0038 °C),Seleccionar Estrategia A para soporte bilineal,COMPLETED
+6,Stage C,C.1c,Validación de solución costera (2015-01-01),Campos procesados con Estrategia A,100% de celdas válidas; Baseline E0 establecido,Aprobar corrida temporal decenal completa,COMPLETED
+7,Stage C,C.2,Armonización decenal completa 2015–2025,"MUR y OISST en los 4,018 días","faseC2_2015_2025.nc (21,211,022 observaciones)",Congelar cubo armonizado decenal,COMPLETED
+8,Stage C,Sat Audit,Auditoría radiométrica infrarroja L2P,Gránulos VIIRS y MODIS en eventos extremos,Evidencia de fuerte bloqueo nuboso,Preservar C.2 intacto; MUR como referencia,COMPLETED / HETEROGENEOUS
+9,Stage C,MUR AE,Auditoría de analysis_error decenal,"Variable analysis_error de MUR (4,018 días)",Identificación de techo asintótico en 0.41 °C,Excluir analysis_error de las features de entrada,CLOSED
+10,Stage D,D.Dataset,Construcción de dataset tabular analítico,faseC2_2015_2025.nc y analysis_error,Tablas Parquet particionadas cronológicamente,Bloquear conjunto Test 2024–2025,COMPLETED
+11,Stage D,D31,Diagnóstico de predictibilidad residual,Partición Development (2015–2020),Demostración de estructura predictiva reproducible,Proceder con aprendizaje residual tabular,CLOSED
+12,Stage D,D32,Selección de modelo y ablación de features,Dev (2015–2020) y Holdout diagnóstico (2021),"Selección de E3b-C0; 5,275 celdas congeladas",Congelar especificación E3b-C0 y celdas comunes,METHODOLOGICALLY CLOSED
+13,Stage D,D33,Validación temporal externa 2022–2023,Reajuste 2015–2021 y evaluación en 2022–2023,Mejora global +3.52%; 16/24 meses mejorados,Dictamen D33-B; pausa para auditoría diagnóstica,D33-B — UNCHANGED
+14,Stage D,D34,Auditoría diagnóstica post-validación,Predicciones de validación y covariables,Comprensión de regímenes y compresión de amplitud,Proceder a Final Test con protocolo congelado,INTERPRETATIONALLY CLOSED
+15,Stage D,D35,Evaluación terminal en Final Test 2024–2025,Reajuste 2015–2023 y evaluación en 2024–2025,+7.22% mejora global; 18/24 meses; 99.96% celdas,Dictamen D35-A; FINAL TEST CONSUMIDO,D35-A — FINAL GENERALIZATION CONFIRMED
+16,Stage D,D36,Síntesis final del bloque de Machine Learning,Resultados consolidados de D31–D35,Suite de reportes y tablas de publicación,Cierre científico definitivo de modelos ML,FINAL SYNTHESIS COMPLETED

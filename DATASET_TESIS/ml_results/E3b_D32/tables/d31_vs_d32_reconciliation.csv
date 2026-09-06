@@ -1,0 +1,16 @@
+comparison_item,D31_A4,D32_C0,same_or_different,scientific_effect
+algorithm,XGBoost Regressor (hist),XGBoost Regressor (hist),SAME,Identical tree building algorithm
+target_definition,R = SST_MUR - SST_BIL,R = SST_MUR - SST_BIL,SAME,Identical residual target definition
+target_reconstruction,SST_hat = SST_BIL + R_hat,SST_hat = SST_BIL + R_hat,SAME,Identical reconstruction formula
+features,"sst_bil, doy_sin, doy_cos, depth","sst_bil, doy_sin, doy_cos, depth",SAME,Identical 4 input predictors
+depth_definition,GEBCO 2024 bathymetry,GEBCO 2024 bathymetry,SAME,Identical bathymetric coordinates and sampling
+doy_definition,sin/cos(2*pi*doy/365.25),sin/cos(2*pi*doy/365.25),SAME,Identical cyclical calendar encoding
+coordinate_grid,C.2 grid (5279 cells),C.2 grid (5279 cells),SAME,Identical spatial domain and cell identifiers
+train_years,2015–2020 (DEVELOPMENT),2015–2020 (DEVELOPMENT),SAME,Identical temporal training window
+evaluation_holdout,2021 (365 days),2021 (365 days),SAME,Identical diagnostic holdout year
+evaluation_mask,"1,925,375 rows (99.92%)","1,925,375 rows (99.92%)",SAME,Identical evaluable rows and dates
+training_sample_size,Full DEV (11.55M rows),Full DEV (11.55M rows) [audited],SAME,Both fit on complete valid DEV dataset
+max_depth,5,4,DIFFERENT,D31 used deeper trees allowing higher non-linear interaction capacity
+learning_rate,0.02,0.10,DIFFERENT,D31 used slower shrinkage rate (0.02 vs 0.10)
+n_estimators,352 trees,19 trees,DIFFERENT,D31 used 352 trees (inherited from E3); D32 used 19 trees (early stopping on 2020)
+model_capacity,Higher (352 trees * depth 5),Lower (19 trees * depth 4),DIFFERENT,Primary driver of Δ ≈ 0.0075 °C between D31 (0.3417 °C) and audited D32 (0.3493 °C)

@@ -1,0 +1,3 @@
+timestamp,filename,logical_access_number,rows_loaded,unique_dates,unique_cells,status
+2026-09-05T20:51:10.734554,test_2024.parquet,1,1930650,366,5275,LOADED_AND_FILTERED
+2026-09-05T20:51:10.845249,test_2025.parquet,2,1925375,365,5275,LOADED_AND_FILTERED

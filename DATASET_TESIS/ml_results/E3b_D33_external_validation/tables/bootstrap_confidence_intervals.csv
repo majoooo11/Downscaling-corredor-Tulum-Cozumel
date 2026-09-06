@@ -1,0 +1,2 @@
+metric,N_blocks,B_replicates,median_delta_rmse,ci95_lower,ci95_upper,prob_delta_rmse_lt_zero,k_negative,k_positive,bootstrap_p_two_sided
+Delta_RMSE (C0 - B0),730,1000,-0.011902272701263428,-0.016445522755384447,-0.00722435787320137,1.0,1000,0,0.001998001998001998

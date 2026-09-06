@@ -1,0 +1,101 @@
+{
+  "experimento": "E3",
+  "modelo": "XGBoost Residual Baseline",
+  "fecha_ejecucion": "2026-09-05 17:43:39",
+  "entorno": {
+    "python": "3.11.16",
+    "xgboost": "3.2.0",
+    "sistema": "macOS-26.6.2-arm64-arm-64bit"
+  },
+  "features": [
+    "sst_bil",
+    "depth",
+    "distance_coast_km",
+    "ocean_fraction",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "target": "residual",
+  "particiones": {
+    "TRAIN_SUB": "2015-01-01 a 2020-12-31 (N = 11,571,568)",
+    "TRAIN_SUB_sample": "N = 1,157,157 (~10.00%, Hamilton proporcional, seed 42)",
+    "INTERNAL_VALIDATION": "2021-01-01 a 2021-12-31 (N = 1,926,835)",
+    "FINAL_TRAIN": "2015-01-01 a 2021-12-31 (N = 13,498,403)",
+    "VALIDATION": "2022-01-01 a 2023-12-31 (N = 3,853,670)",
+    "TEST": "2024-01-01 a 2025-12-31 (BLOQUEADO, files opened = 0)"
+  },
+  "hiperparametros_seleccionados": {
+    "cfg_id": 2,
+    "learning_rate": 0.02,
+    "max_depth": 5,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "reg_alpha": 0.0,
+    "min_child_weight": 5,
+    "best_iteration": 351,
+    "n_estimators_final": 352,
+    "tree_method": "hist"
+  },
+  "metricas_validacion_2021": {
+    "rmse_2021": 0.34137484431266785,
+    "mae_2021": 0.25918135046958923,
+    "pearson_2021": 0.2952806353569031
+  },
+  "metricas_formal_validation_2022_2023": {
+    "E0": {
+      "RMSE_SST": 0.3356849253177643,
+      "MAE_SST": 0.26360586285591125,
+      "Bias_SST": 0.025086890906095505,
+      "Abs_Bias_SST": 0.025086890906095505,
+      "R2_SST": 0.9002070426940918,
+      "Pearson_SST": 0.9611567258834839,
+      "RMSE_RES": 0.3356849253177643,
+      "MAE_RES": 0.26360586285591125,
+      "R2_RES": 0.0,
+      "Pearson_RES": NaN,
+      "Spearman_RES": NaN,
+      "std_ratio_RES": 0.0
+    },
+    "E2": {
+      "RMSE_SST": 0.4138103425502777,
+      "MAE_SST": 0.32316744327545166,
+      "Bias_SST": -0.04484399035573006,
+      "Abs_Bias_SST": 0.04484399035573006,
+      "R2_SST": 0.8483511805534363,
+      "Pearson_SST": 0.9328693151473999,
+      "RMSE_RES": 0.4138103425502777,
+      "MAE_RES": 0.32316744327545166,
+      "R2_RES": -0.5281689167022705,
+      "Pearson_RES": 0.14246593415737152,
+      "Spearman_RES": 0.14979639835768233,
+      "std_ratio_RES": 0.8708332777023315
+    },
+    "E3": {
+      "RMSE_SST": 0.33652740716934204,
+      "MAE_SST": 0.26458388566970825,
+      "Bias_SST": -0.03395616635680199,
+      "Abs_Bias_SST": 0.03395616635680199,
+      "R2_SST": 0.8997054696083069,
+      "Pearson_SST": 0.9552384614944458,
+      "RMSE_RES": 0.33652740716934204,
+      "MAE_RES": 0.26458388566970825,
+      "R2_RES": -0.01067054271697998,
+      "Pearson_RES": 0.2352108657360077,
+      "Spearman_RES": 0.30538795080933867,
+      "std_ratio_RES": 0.4712297320365906
+    }
+  },
+  "tiempos": {
+    "fit_time_final_sec": 25.05
+  },
+  "auditorias": {
+    "spatial_mapping_audit_pass": true,
+    "test_files_opened": 0
+  },
+  "clasificacion": {
+    "dictamen": "D",
+    "recomendacion": "R3",
+    "descripcion": "Revisar target/formulaci\u00f3n de features antes de continuar escalando complejidad."
+  }
+}

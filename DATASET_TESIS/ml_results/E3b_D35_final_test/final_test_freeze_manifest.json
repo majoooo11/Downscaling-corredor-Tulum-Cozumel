@@ -1,0 +1,80 @@
+{
+  "phase": "FASE D.3.5 \u2014 FINAL TEST",
+  "model_name": "E3b-C0_FINALREFIT_2015_2023",
+  "target": "residual = SST_MUR - SST_BIL",
+  "reconstruction": "SST_hat = SST_BIL + R_hat",
+  "features": [
+    "sst_bil",
+    "doy_sin",
+    "doy_cos",
+    "depth"
+  ],
+  "feature_order": [
+    "sst_bil",
+    "doy_sin",
+    "doy_cos",
+    "depth"
+  ],
+  "hyperparameters": {
+    "max_depth": 4,
+    "learning_rate": 0.1,
+    "n_estimators": 19,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 5,
+    "random_state": 42,
+    "tree_method": "hist",
+    "objective": "reg:squarederror"
+  },
+  "training_period": "2015-01-01 to 2023-12-31",
+  "training_days": 3287,
+  "training_rows": 17338925,
+  "spatial_cells": 5275,
+  "frozen_cells_sha256": "6f046931d2d8220c1938b1cb06511fe63b5dbc51debed51df8b353006635f5bb",
+  "spatial_metadata_sha256": "8cc02f86b14d5bc0bd255bbe896b3d237df5fbf219ce3d1a5eec4283d0a1e365",
+  "final_model_sha256": "395638980b7d85e449a72af7ac866b7dc93da1101b0feeacc76d00e271a13761",
+  "script_sha256": "a6e49ae41cb5bec526866bb794616c2ec85741d6cd7feb9a1f789c87a0243a94",
+  "random_state": 42,
+  "software_versions": {
+    "python": "3.11.16",
+    "xgboost": "3.2.0",
+    "pandas": "3.0.5",
+    "numpy": "2.4.6",
+    "scipy": "scipy.stats",
+    "scikit-learn": "1.9.0",
+    "pyarrow": "25.0.1",
+    "matplotlib": "3.11.1"
+  },
+  "residual_thresholds": {
+    "DEV-P50": 0.2066,
+    "DEV-P75": 0.3604,
+    "DEV-P90": 0.5377,
+    "DEV-P95": 0.6652,
+    "DEV-P99": 0.9659
+  },
+  "bootstrap_protocol": {
+    "B": 1000,
+    "block_lengths": [
+      1,
+      7,
+      14
+    ],
+    "primary_confirmation_block": 14,
+    "sse_accumulation": true
+  },
+  "D35_decision_criteria": {
+    "D35_A_criteria": [
+      "Combined TEST RMSE Improvement >= +1.00%",
+      "MAE_C0 <= MAE_B0",
+      "14-day moving-block bootstrap CI95_upper(DeltaRMSE) < 0",
+      "2024 Improvement_RMSE > 0",
+      "2025 Improvement_RMSE > 0",
+      "Months improved >= 18 / 24",
+      "Cells improved >= 75%"
+    ],
+    "D35_B_condition": "Combined TEST RMSE_C0 < RMSE_B0 but fails one or more D35-A criteria",
+    "D35_C_condition": "Combined TEST RMSE_C0 >= RMSE_B0"
+  },
+  "test_opened": false,
+  "freeze_timestamp": "2026-09-05T20:51:10.734155"
+}

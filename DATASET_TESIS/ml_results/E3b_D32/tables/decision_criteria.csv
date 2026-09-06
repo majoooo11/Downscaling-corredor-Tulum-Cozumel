@@ -1,0 +1,9 @@
+criterion,value,threshold,passed
+T1: Temporal RMSE improvement vs CORE >= 1.00%,-0.34%,>= +1.00%,False
+T2: Temporal MAE <= CORE MAE,0.2666 vs 0.2663,<= CORE MAE,False
+T3: Months improved vs B0 >= 10/12,7/12,>= 10/12,False
+T4: Cells improved vs B0 >= 25%,99.5%,>= 25.0%,True
+T5: Seasonal stability preserved,std=0.0693 vs std_core=0.0663,<= 1.5 * std_core,True
+S1: Spatial incremental RMSE improvement vs Best Temporal >= 1.00%,-0.31%,>= +1.00%,False
+S2: Spatial cells improved vs Best Temporal >= 50%,27.1%,>= 50.0%,False
+S3: Spatial months improved vs Best Temporal >= 7/12,4/12,>= 7/12,False

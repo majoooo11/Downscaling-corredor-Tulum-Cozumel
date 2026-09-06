@@ -1,0 +1,20 @@
+{
+  "execution_start": "2026-09-05T20:51:10.734412",
+  "execution_end": "2026-09-05T20:51:22.361563",
+  "freeze_verified": true,
+  "first_test_access_timestamp": "2026-09-05T20:51:10.734412",
+  "first_raw_test_file": "test_2024.parquet",
+  "test_consumed": true,
+  "logical_raw_load_count": 2,
+  "test_files_loaded": [
+    "test_2024.parquet",
+    "test_2025.parquet"
+  ],
+  "execution_status": "COMPLETED",
+  "technical_errors": 0,
+  "technical_rerun": false,
+  "model_modified_after_test": false,
+  "model_retrained_after_test": false,
+  "final_decision": "D35-A",
+  "final_decision_meaning": "FINAL GENERALIZATION CONFIRMED"
+}

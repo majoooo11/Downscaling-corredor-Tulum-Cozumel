@@ -1,0 +1,4 @@
+evaluation_period,training_window,evaluation_window,RMSE_B0,RMSE_C0,DeltaRMSE,RMSE_improvement_pct,notes
+2021 Diagnostic Holdout,2015–2020,2021,0.359493,0.349274,-0.010219,2.84243,Model trained on 2015-2020; tested on 2021 holdout
+2022–2023 Validation,2015–2021,2022–2023,0.335666,0.323838,-0.011828,3.52371,Model trained on 2015-2021; external temporal validation
+2024–2025 Final Test,2015–2023,2024–2025,0.357317,0.331502,-0.025815,7.22466,Model refit on 2015-2023; evaluated on withheld final test

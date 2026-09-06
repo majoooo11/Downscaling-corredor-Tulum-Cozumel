@@ -1,0 +1,7 @@
+Feature,MDI_Ranking,MDI_Score,Permutation_Mean,Interpretacion
+sst_bil,1,0.3557,3.2731,Dominancia espuria del predictor base; el árbol particiona fuertemente sobre sst_bil pero amplifica varianza en validación.
+doy_sin,2,0.244,1.0106,Componente estacional primaria; modulación anual del ciclo térmico regional.
+doy_cos,3,0.2105,0.154,Componente estacional secundaria; coherencia con eventos invernales.
+depth,4,0.1076,0.0039,Aporte predictivo marginal nulo (Permutation ~ 0.004); la batimetría no aporta señal lineal directa al residual.
+distance_coast_km,5,0.082,-0.0072,Importancia por permutación negativa; su remoción aleatoria no deteriora el score en validación.
+ocean_fraction,6,0.0002,0.0,Inerte (99.4% celdas con fracción = 1.0).

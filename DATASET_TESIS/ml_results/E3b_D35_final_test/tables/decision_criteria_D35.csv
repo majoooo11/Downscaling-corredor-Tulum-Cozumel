@@ -1,0 +1,9 @@
+criterion_number,description,observed_value,threshold,status
+1,Combined TEST RMSE Improvement >= +1.00%,+7.2247%,>= +1.00%,PASS
+2,MAE_C0 <= MAE_B0,C0=0.2563 vs B0=0.2727,MAE_C0 <= MAE_B0,PASS
+3,14-day moving-block bootstrap CI95_upper(DeltaRMSE) < 0,CI95_upper = -0.009792 °C,< 0 °C,PASS
+4,2024 Improvement_RMSE > 0,+9.3986%,> 0%,PASS
+5,2025 Improvement_RMSE > 0,+4.4704%,> 0%,PASS
+6,Months improved >= 18 / 24,18 / 24,>= 18 / 24,PASS
+7,Cells improved >= 75%,99.96% (5273/5275),>= 75.0%,PASS
+FINAL,DICTAMEN FORMAL D35,D35-A,All 7 PASS for D35-A,FINAL GENERALIZATION CONFIRMED

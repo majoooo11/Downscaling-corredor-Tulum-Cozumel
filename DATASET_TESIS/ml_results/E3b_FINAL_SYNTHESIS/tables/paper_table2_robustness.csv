@@ -1,0 +1,15 @@
+metric,value,units,source_phase
+months_improved,18 / 24,months,D35
+days_improved,484 / 731,days,D35
+days_improved_pct,66.21,%,D35
+cells_improved,5273 / 5275,cells,D35
+cells_improved_pct,99.96,%,D35
+median_spatial_delta_rmse,-0.022808,degC,D35
+P90_spatial_delta_rmse,-0.009307,degC,D35
+bootstrap_14d_median,-0.025395,degC,D35
+bootstrap_14d_ci95_lower,-0.042485,degC,D35
+bootstrap_14d_ci95_upper,-0.009792,degC,D35
+R2_residual,0.112175,fraction,D35
+sign_accuracy,63.79,%,D35
+majority_sign_baseline,52.45,%,D35
+balanced_sign_accuracy,63.27,%,D35

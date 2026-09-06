@@ -1,0 +1,5 @@
+dataset,period,n_days,n_cells,total_observations,duplicated_date_cell
+Prevalidation Refit (Train),2015–2021,2557,5275,13488175,0
+External Validation,2022–2023,730,5275,3850750,0
+External Validation 2022,2022,365,5275,1925375,0
+External Validation 2023,2023,365,5275,1925375,0

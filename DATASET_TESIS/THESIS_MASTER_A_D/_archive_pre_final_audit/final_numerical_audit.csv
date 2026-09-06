@@ -1,0 +1,35 @@
+audit_id,metric,stage,document_value,canonical_value,canonical_source,difference,tolerance,status,notes
+NUM-01,total_expected_days,Stage A,4018,4018,"config.py, reports/inspeccion_previa.txt",0,0,MATCH,Continuidad diaria 100% verificada
+NUM-02,total_master_grid_cells,Stage B,8256,8256,"reporte_fase_b.txt, config.py",0,0,MATCH,Dimensiones 86 latitud × 96 longitud a 0.01°
+NUM-03,harmonized_ocean_cells,Stage B / C,5279,5279,"reporte_fase_b.txt, faseC2_2015_2025.nc",0,0,MATCH,Censo físico de celdas marinas en Fase B y C.2
+NUM-04,frozen_ml_cells,Stage D,5275,5275,ml_results/E3b_D32/tables/frozen_cell_ids.csv,0,0,MATCH,4 celdas excluidas por grad_mag NaN en D32
+NUM-05,c2_global_pooled_rmse,Stage C.2,0.3426,0.342596,"outputs/faseC2_2015_2025.nc, fase_c2_reporte.md",0.000004,0.0001,ROUNDING_ONLY,"RMSE espacio-temporal agrupado sobre las 21,211,022 observaciones"
+NUM-06,c2_mean_daily_rmse,Stage C.2,0.3019,0.301914,diagnostico_extremos/metricas_diarias_2015_2025.csv,0.000014,0.0001,ROUNDING_ONLY,"Promedio temporal de los RMSE diarios sobre los 4,018 días"
+NUM-07,c2_annual_max_mean_daily_rmse,Stage C.2,0.3257,0.325670,fase_c2_reporte.md (Año 2024),0.000030,0.0001,ROUNDING_ONLY,Promedio diario anual máximo en 2024 (aclara GAP-12)
+NUM-08,c2_annual_min_mean_daily_rmse,Stage C.2,0.2724,0.272415,fase_c2_reporte.md (Año 2018),0.000015,0.0001,ROUNDING_ONLY,Promedio diario anual mínimo en 2018
+NUM-09,c2_annual_max_pooled_rmse,Stage C.2,0.3811,0.381112,diagnostico_extremos/metricas_diarias_2015_2025.csv (Año 2015),0.000012,0.0001,MATCH,RMSE espacio-temporal agrupado anual máximo (2015). Supera al global 0.3426 °C.
+NUM-10,d32_b0_rmse,Stage D32,0.359493,0.359493,ml_results/E3b_D32/tables/model_summary.csv,0,1e-6,MATCH,"Holdout 2021 sobre 5,275 celdas"
+NUM-11,d32_c0_rmse,Stage D32,0.349274,0.349274,ml_results/E3b_D32/tables/model_summary.csv,0,1e-6,MATCH,Modelo E3b-C0 seleccionado
+NUM-12,d32_c0_improvement_pct,Stage D32,2.84243,2.842435,ml_results/E3b_D32/tables/model_summary.csv,0.000005,1e-4,ROUNDING_ONLY,Mejora relativa en holdout
+NUM-13,d33_b0_rmse,Stage D33,0.335666,0.335666,ml_results/E3b_D33_external_validation/tables/validation_summary.csv,0,1e-6,MATCH,Validación externa 2022–2023
+NUM-14,d33_c0_rmse,Stage D33,0.323838,0.323838,ml_results/E3b_D33_external_validation/tables/validation_summary.csv,0,1e-6,MATCH,E3b-C0 reajustado en 2015–2021
+NUM-15,d33_improvement_pct,Stage D33,3.5237,3.523713,ml_results/E3b_D33_external_validation/tables/validation_summary.csv,0.000013,1e-4,ROUNDING_ONLY,Mejora global out-of-sample en validación
+NUM-16,d33_months_improved,Stage D33,16 / 24,16 / 24,ml_results/E3b_D33_external_validation/tables/validation_summary.csv,0,0,MATCH,Dictamen D33-B formal
+NUM-17,d33_cells_improved,Stage D33,4755 / 5275,4755 / 5275,ml_results/E3b_D33_external_validation/tables/validation_summary.csv,0,0,MATCH,90.14% de celdas mejoradas
+NUM-18,d35_b0_rmse,Stage D35,0.357317,0.357317,ml_results/E3b_D35_final_test/tables/final_test_summary.csv,0,1e-6,MATCH,Final Test 2024–2025
+NUM-19,d35_c0_rmse,Stage D35,0.331502,0.331502,ml_results/E3b_D35_final_test/tables/final_test_summary.csv,0,1e-6,MATCH,E3b-C0 reajustado en 2015–2023
+NUM-20,d35_improvement_pct,Stage D35,7.2247,7.224660,ml_results/E3b_D35_final_test/tables/final_test_summary.csv,0.000040,1e-4,ROUNDING_ONLY,Mejora global terminal confirmada
+NUM-21,d35_improvement_2024_pct,Stage D35,9.3986,9.398561,ml_results/E3b_D35_final_test/tables/yearly_metrics.csv,0.000039,1e-4,ROUNDING_ONLY,Año 2024 (B0: 0.379708 -> C0: 0.344023 °C)
+NUM-22,d35_improvement_2025_pct,Stage D35,4.4704,4.470369,ml_results/E3b_D35_final_test/tables/yearly_metrics.csv,0.000031,1e-4,ROUNDING_ONLY,Año 2025 (B0: 0.333355 -> C0: 0.318453 °C)
+NUM-23,d35_months_improved_total,Stage D35,18 / 24,18 / 24,ml_results/E3b_D35_final_test/tables/monthly_metrics.csv,0,0,MATCH,75.0% de meses del bienio
+NUM-24,d35_months_improved_2024,Stage D35,9 / 12,9 / 12,ml_results/E3b_D35_final_test/tables/monthly_metrics.csv,0,0,CORRECTED,"Corregido de 11/12 a 9/12 (GAP-10). Meses negativos: 2024-01, 2024-04, 2024-10"
+NUM-25,d35_months_improved_2025,Stage D35,9 / 12,9 / 12,ml_results/E3b_D35_final_test/tables/monthly_metrics.csv,0,0,CORRECTED,"Corregido de 7/12 a 9/12 (GAP-10). Meses negativos: 2025-09, 2025-10, 2025-12"
+NUM-26,d35_days_improved,Stage D35,484 / 731,484 / 731,ml_results/E3b_D35_final_test/tables/final_test_summary.csv,0,0,MATCH,66.21% de los días evaluados
+NUM-27,d35_cells_improved,Stage D35,5273 / 5275,5273 / 5275,ml_results/E3b_D35_final_test/tables/final_test_summary.csv,0,0,MATCH,99.96% de las celdas marinas evaluadas
+NUM-28,d35_bootstrap_14d_ci95,Stage D35,"[-0.042485, -0.009792]","[-0.042485, -0.009792]",ml_results/E3b_D35_final_test/tables/bootstrap_sensitivity.csv,0,1e-6,MATCH,Intervalo al 95% estrictamente negativo
+NUM-29,d35_threshold_dev_p50,Stage D35,0.2066,0.2066,"final_test_freeze_manifest.json, fase_d35_final_test_c0.py",0,1e-4,CORRECTED,Corregido de 0.177 a 0.2066 °C (GAP-09)
+NUM-30,d35_threshold_dev_p75,Stage D35,0.3604,0.3604,"final_test_freeze_manifest.json, fase_d35_final_test_c0.py",0,1e-4,CORRECTED,Corregido de 0.354 a 0.3604 °C (GAP-09)
+NUM-31,d35_threshold_dev_p90,Stage D35,0.5377,0.5377,"final_test_freeze_manifest.json, fase_d35_final_test_c0.py",0,1e-4,CORRECTED,Corregido de 0.536 a 0.5377 °C (GAP-09)
+NUM-32,d35_threshold_dev_p95,Stage D35,0.6652,0.6652,"final_test_freeze_manifest.json, fase_d35_final_test_c0.py",0,1e-4,CORRECTED,Corregido de 0.697 a 0.6652 °C (GAP-09)
+NUM-33,d35_threshold_dev_p99,Stage D35,0.9659,0.9659,"final_test_freeze_manifest.json, fase_d35_final_test_c0.py",0,1e-4,CORRECTED,Corregido de 1.054 a 0.9659 °C (GAP-09)
+NUM-34,d35_spatial_metadata_sha256,Stage D35,8cc02f86b14d5bc0bd255bbe896b3d237df5fbf219ce3d1a5eec4283d0a1e365,8cc02f86b14d5bc0bd255bbe896b3d237df5fbf219ce3d1a5eec4283d0a1e365,final_test_freeze_manifest.json,0,0,CORRECTED,Corregido de hash a93b... a hash canónico 8cc0... (GAP-11)
