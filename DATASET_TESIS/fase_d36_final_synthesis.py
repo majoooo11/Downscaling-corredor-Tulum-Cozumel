@@ -781,267 +781,323 @@ plt.rcParams.update({
     "font.family": "sans-serif"
 })
 
-# ------------------------------------------------------------------------------
-# FIGURE 1 — FINAL TEST GLOBAL PERFORMANCE (3 panels)
-# ------------------------------------------------------------------------------
-fig, axes = plt.subplots(1, 3, figsize=(14, 4.5), dpi=300)
-periods = ["2024", "2025", "Combined\n(2024–2025)"]
-x = np.arange(len(periods))
-width = 0.35
+def generate_figure_1():
+    # ------------------------------------------------------------------------------
+    # FIGURE 1 — FINAL TEST GLOBAL PERFORMANCE (3 panels)
+    # ------------------------------------------------------------------------------
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
+    periods = ["2024", "2025", "Combined\n(2024–2025)"]
+    x = np.arange(len(periods))
+    width = 0.35
 
-# Panel A: RMSE
-b0_rmse = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_B0"].values[0],
-           df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_B0"].values[0],
-           df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_B0"].values[0]]
-c0_rmse = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_C0"].values[0],
-           df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_C0"].values[0],
-           df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_C0"].values[0]]
+    # Panel A: RMSE
+    b0_rmse = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_B0"].values[0],
+               df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_B0"].values[0],
+               df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_B0"].values[0]]
+    c0_rmse = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_C0"].values[0],
+               df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_C0"].values[0],
+               df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_C0"].values[0]]
 
-axes[0].bar(x - width/2, b0_rmse, width, label="Baseline $B_0$ (Bilinear)", color="#94a3b8", edgecolor="#475569")
-axes[0].bar(x + width/2, c0_rmse, width, label="Model $C_0$ (E3b-C0 Refit)", color="#0284c7", edgecolor="#0369a1")
-axes[0].set_ylabel("RMSE (°C)")
-axes[0].set_title("Panel A: Root Mean Square Error")
-axes[0].set_xticks(x)
-axes[0].set_xticklabels(periods)
-axes[0].set_ylim(0, 0.45)
-axes[0].legend(loc="upper right", framealpha=0.9)
-for i, v in enumerate(b0_rmse):
-    axes[0].text(i - width/2, v + 0.008, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5)
-for i, v in enumerate(c0_rmse):
-    axes[0].text(i + width/2, v + 0.008, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5, fontweight="bold")
+    axes[0].bar(x - width/2, b0_rmse, width, label="Baseline $B_0$ (Bilinear)", color="#94a3b8", edgecolor="#475569")
+    axes[0].bar(x + width/2, c0_rmse, width, label="Model $C_0$ (E3b-C0 Refit)", color="#0284c7", edgecolor="#0369a1")
+    axes[0].set_ylabel("RMSE (°C)")
+    axes[0].set_title("Panel A: Root Mean Square Error")
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(periods)
+    axes[0].set_ylim(0, 0.45)
+    axes[0].legend(loc="upper right", framealpha=0.9)
+    for i, v in enumerate(b0_rmse):
+        axes[0].text(i - width/2, v + 0.008, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5)
+    for i, v in enumerate(c0_rmse):
+        axes[0].text(i + width/2, v + 0.008, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5, fontweight="bold")
 
-# Panel B: MAE
-b0_mae = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "MAE_B0"].values[0],
-          df_paper_t1.loc[df_paper_t1["period"]=="2025", "MAE_B0"].values[0],
-          df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "MAE_B0"].values[0]]
-c0_mae = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "MAE_C0"].values[0],
-          df_paper_t1.loc[df_paper_t1["period"]=="2025", "MAE_C0"].values[0],
-          df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "MAE_C0"].values[0]]
+    # Panel B: MAE
+    b0_mae = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "MAE_B0"].values[0],
+              df_paper_t1.loc[df_paper_t1["period"]=="2025", "MAE_B0"].values[0],
+              df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "MAE_B0"].values[0]]
+    c0_mae = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "MAE_C0"].values[0],
+              df_paper_t1.loc[df_paper_t1["period"]=="2025", "MAE_C0"].values[0],
+              df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "MAE_C0"].values[0]]
 
-axes[1].bar(x - width/2, b0_mae, width, label="Baseline $B_0$", color="#cbd5e1", edgecolor="#64748b")
-axes[1].bar(x + width/2, c0_mae, width, label="Model $C_0$", color="#059669", edgecolor="#047857")
-axes[1].set_ylabel("MAE (°C)")
-axes[1].set_title("Panel B: Mean Absolute Error")
-axes[1].set_xticks(x)
-axes[1].set_xticklabels(periods)
-axes[1].set_ylim(0, 0.35)
-axes[1].legend(loc="upper right", framealpha=0.9)
-for i, v in enumerate(b0_mae):
-    axes[1].text(i - width/2, v + 0.006, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5)
-for i, v in enumerate(c0_mae):
-    axes[1].text(i + width/2, v + 0.006, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5, fontweight="bold")
+    axes[1].bar(x - width/2, b0_mae, width, label="Baseline $B_0$", color="#cbd5e1", edgecolor="#64748b")
+    axes[1].bar(x + width/2, c0_mae, width, label="Model $C_0$", color="#059669", edgecolor="#047857")
+    axes[1].set_ylabel("MAE (°C)")
+    axes[1].set_title("Panel B: Mean Absolute Error")
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(periods)
+    axes[1].set_ylim(0, 0.35)
+    axes[1].legend(loc="upper right", framealpha=0.9)
+    for i, v in enumerate(b0_mae):
+        axes[1].text(i - width/2, v + 0.006, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5)
+    for i, v in enumerate(c0_mae):
+        axes[1].text(i + width/2, v + 0.006, f"{v:.3f}", ha="center", va="bottom", fontsize=8.5, fontweight="bold")
 
-# Panel C: RMSE Improvement %
-imprs = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_improvement_pct"].values[0],
-         df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_improvement_pct"].values[0],
-         df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_improvement_pct"].values[0]]
+    # Panel C: RMSE Improvement %
+    imprs = [df_paper_t1.loc[df_paper_t1["period"]=="2024", "RMSE_improvement_pct"].values[0],
+             df_paper_t1.loc[df_paper_t1["period"]=="2025", "RMSE_improvement_pct"].values[0],
+             df_paper_t1.loc[df_paper_t1["period"]=="2024–2025", "RMSE_improvement_pct"].values[0]]
 
-bars = axes[2].bar(x, imprs, width=0.45, color=["#38bdf8", "#34d399", "#2563eb"], edgecolor="#1e293b")
-axes[2].set_ylabel("RMSE Improvement (%)")
-axes[2].set_title("Panel C: Relative Improvement vs $B_0$")
-axes[2].set_xticks(x)
-axes[2].set_xticklabels(periods)
-axes[2].set_ylim(0, 12)
-axes[2].axhline(1.0, color="#ef4444", linestyle="--", linewidth=1.2, label="Predeclared Threshold (+1.00%)")
-axes[2].legend(loc="upper right", framealpha=0.9)
-for bar, val in zip(bars, imprs):
-    axes[2].text(bar.get_x() + bar.get_width()/2, val + 0.25, f"+{val:.2f}%", ha="center", va="bottom", fontweight="bold", fontsize=9)
+    bars = axes[2].bar(x, imprs, width=0.45, color=["#38bdf8", "#34d399", "#2563eb"], edgecolor="#1e293b")
+    axes[2].set_ylabel("RMSE Improvement (%)")
+    axes[2].set_title("Panel C: Relative Improvement vs $B_0$")
+    axes[2].set_xticks(x)
+    axes[2].set_xticklabels(periods)
+    axes[2].set_ylim(0, 12)
+    axes[2].axhline(1.0, color="#ef4444", linestyle="--", linewidth=1.2, label="Predeclared Threshold (+1.00%)")
+    axes[2].legend(loc="upper right", framealpha=0.9)
+    for bar, val in zip(bars, imprs):
+        axes[2].text(bar.get_x() + bar.get_width()/2, val + 0.25, f"+{val:.2f}%", ha="center", va="bottom", fontweight="bold", fontsize=9)
 
-fig.suptitle("FIGURE 1: Out-of-Sample Performance on Withheld FINAL TEST (2024–2025)", y=1.02, fontweight="bold")
-plt.tight_layout()
-fig1_path = SYNTHESIS_FIGURES / "fig1_final_performance.png"
-plt.savefig(fig1_path, dpi=300, bbox_inches="tight")
-plt.close()
-print("  Guardada Figure 1.")
+    fig.suptitle("FIGURE 1: Out-of-Sample Performance on Withheld FINAL TEST (2024–2025)", y=1.02, fontweight="bold")
+    plt.tight_layout()
+    fig1_path = SYNTHESIS_FIGURES / "fig1_final_performance.png"
+    fig1_pub_png = SYNTHESIS_FIGURES / "fig1_final_performance_PUBLICATION.png"
+    fig1_pub_pdf = SYNTHESIS_FIGURES / "fig1_final_performance_PUBLICATION.pdf"
+    plt.savefig(fig1_path, dpi=300, bbox_inches="tight")
+    plt.savefig(fig1_pub_png, dpi=300, bbox_inches="tight")
+    plt.savefig(fig1_pub_pdf, bbox_inches="tight")
+    plt.close()
+    print("  Guardada Figure 1 (PNG, PUBLICATION PNG, PUBLICATION PDF).")
 
-# ------------------------------------------------------------------------------
-# FIGURE 2 — TEMPORAL ROBUSTNESS (3 panels)
-# ------------------------------------------------------------------------------
-fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
 
-# Panel A: Monthly RMSE Improvement
-month_col = "year_month" if "year_month" in df_d35_monthly.columns else "month"
-months = df_d35_monthly[month_col].values
-m_impr = df_d35_monthly["Improvement_RMSE_pct"].values
-colors_m = ["#10b981" if v >= 0 else "#f43f5e" for v in m_impr]
+def generate_figure_2():
+    # ------------------------------------------------------------------------------
+    # FIGURE 2 — TEMPORAL ROBUSTNESS (3 panels)
+    # ------------------------------------------------------------------------------
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
 
-axes[0].bar(range(len(months)), m_impr, color=colors_m, edgecolor="#1e293b", width=0.7)
-axes[0].axhline(0, color="#475569", linestyle="-", linewidth=1)
-axes[0].set_xticks(range(0, len(months), 3))
-axes[0].set_xticklabels([months[i] for i in range(0, len(months), 3)], rotation=45, ha="right")
-axes[0].set_ylabel("RMSE Improvement (%)")
-axes[0].set_title("Panel A: Monthly Gain (18 / 24 Months Improved)")
-axes[0].grid(axis="y", linestyle=":", alpha=0.6)
+    # Panel A: Monthly RMSE Improvement
+    month_col = "year_month" if "year_month" in df_d35_monthly.columns else "month"
+    months = df_d35_monthly[month_col].values
+    m_impr = df_d35_monthly["Improvement_RMSE_pct"].values
+    colors_m = ["#10b981" if v >= 0 else "#f43f5e" for v in m_impr]
 
-# Panel B: Daily DeltaRMSE + 7d Rolling
-df_d35_daily["date"] = pd.to_datetime(df_d35_daily["date"])
-df_d35_daily_sorted = df_d35_daily.sort_values("date").reset_index(drop=True)
-daily_delta = df_d35_daily_sorted["DeltaRMSE"].values
-rolling_7d = df_d35_daily_sorted["DeltaRMSE"].rolling(7, center=True).mean()
+    axes[0].bar(range(len(months)), m_impr, color=colors_m, edgecolor="#1e293b", width=0.7)
+    axes[0].axhline(0, color="#475569", linestyle="-", linewidth=1)
+    axes[0].set_xticks(range(0, len(months), 3))
+    axes[0].set_xticklabels([months[i] for i in range(0, len(months), 3)], rotation=45, ha="right")
+    axes[0].set_ylabel("RMSE Improvement (%)")
+    axes[0].set_title("Panel A: Monthly Gain (18 / 24 Months Improved)")
+    axes[0].grid(axis="y", linestyle=":", alpha=0.6)
 
-axes[1].plot(df_d35_daily_sorted["date"], daily_delta, color="#94a3b8", alpha=0.45, linewidth=0.7, label="Daily $\Delta$RMSE")
-axes[1].plot(df_d35_daily_sorted["date"], rolling_7d, color="#0284c7", linewidth=1.6, label="7-Day Rolling Mean")
-axes[1].axhline(0, color="#ef4444", linestyle="--", linewidth=1)
-axes[1].set_ylabel("$\Delta$RMSE (°C) [C0 − B0]")
-axes[1].set_title("Panel B: Daily Time Series (484 / 731 Days Improved)")
-axes[1].legend(loc="upper right", framealpha=0.9)
-axes[1].xaxis.set_major_locator(ticker.MaxNLocator(5))
+    # Panel B: Daily DeltaRMSE + 7d Rolling
+    df_d35_daily["date"] = pd.to_datetime(df_d35_daily["date"])
+    df_d35_daily_sorted = df_d35_daily.sort_values("date").reset_index(drop=True)
+    daily_delta = df_d35_daily_sorted["DeltaRMSE"].values
+    rolling_7d = df_d35_daily_sorted["DeltaRMSE"].rolling(7, center=True).mean()
 
-# Panel C: Bootstrap CI95
-b_blocks = df_d35_boot["block_length_days"].values
-b_medians = df_d35_boot["median_delta_rmse"].values
-b_lowers = df_d35_boot["ci95_lower"].values
-b_uppers = df_d35_boot["ci95_upper"].values
-y_err = [b_medians - b_lowers, b_uppers - b_medians]
+    axes[1].plot(df_d35_daily_sorted["date"], daily_delta, color="#94a3b8", alpha=0.45, linewidth=0.7, label="Daily $\Delta$RMSE")
+    axes[1].plot(df_d35_daily_sorted["date"], rolling_7d, color="#0284c7", linewidth=1.6, label="7-Day Rolling Mean")
+    axes[1].axhline(0, color="#ef4444", linestyle="--", linewidth=1)
+    axes[1].set_ylabel("$\Delta$RMSE (°C) [C0 − B0]")
+    axes[1].set_title("Panel B: Daily Time Series (484 / 731 Days Improved)")
+    axes[1].legend(loc="upper right", framealpha=0.9)
+    axes[1].xaxis.set_major_locator(ticker.MaxNLocator(5))
 
-axes[2].errorbar(range(len(b_blocks)), b_medians, yerr=y_err, fmt="o", color="#2563eb",
-                 ecolor="#1e40af", elinewidth=2, capsize=6, capthick=1.5, markersize=7)
-axes[2].axhline(0, color="#ef4444", linestyle="--", linewidth=1.2, label="Zero Improvement ($\Delta=0$)")
-axes[2].set_xticks(range(len(b_blocks)))
-axes[2].set_xticklabels([f"{b}-Day\n{'Cluster' if b==1 else 'Moving Block'}" for b in b_blocks])
-axes[2].set_ylabel("$\Delta$RMSE 95% Confidence Interval (°C)")
-axes[2].set_title("Panel C: Bootstrap Robustness ($B=1,000$)")
-axes[2].legend(loc="lower left", framealpha=0.9)
-for idx, (m, u) in enumerate(zip(b_medians, b_uppers)):
-    axes[2].text(idx + 0.08, m, f"Med: {m:.3f}°C\nUpper: {u:.3f}°C", va="center", fontsize=8.5)
+    # Panel C: Bootstrap CI95
+    b_blocks = df_d35_boot["block_length_days"].values
+    b_medians = df_d35_boot["median_delta_rmse"].values
+    b_lowers = df_d35_boot["ci95_lower"].values
+    b_uppers = df_d35_boot["ci95_upper"].values
+    y_err = [b_medians - b_lowers, b_uppers - b_medians]
 
-fig.suptitle("FIGURE 2: Temporal Robustness Across Monthly, Daily, and Resampled Scales", y=1.02, fontweight="bold")
-plt.tight_layout()
-fig2_path = SYNTHESIS_FIGURES / "fig2_temporal_robustness.png"
-plt.savefig(fig2_path, dpi=300, bbox_inches="tight")
-plt.close()
-print("  Guardada Figure 2.")
+    axes[2].errorbar(range(len(b_blocks)), b_medians, yerr=y_err, fmt="o", color="#2563eb",
+                     ecolor="#1e40af", elinewidth=2, capsize=6, capthick=1.5, markersize=7)
+    axes[2].axhline(0, color="#ef4444", linestyle="--", linewidth=1.2, label="Zero Improvement ($\Delta=0$)")
+    axes[2].set_xticks(range(len(b_blocks)))
+    axes[2].set_xticklabels([f"{b}-Day\n{'Cluster' if b==1 else 'Moving Block'}" for b in b_blocks])
+    axes[2].set_ylabel("$\Delta$RMSE 95% Confidence Interval (°C)")
+    axes[2].set_title("Panel C: Bootstrap Robustness ($B=1,000$)")
+    axes[2].legend(loc="lower left", framealpha=0.9)
+    for idx, (m, u) in enumerate(zip(b_medians, b_uppers)):
+        axes[2].text(idx + 0.08, m, f"Med: {m:.3f}°C\nUpper: {u:.3f}°C", va="center", fontsize=8.5)
 
-# ------------------------------------------------------------------------------
-# FIGURE 3 — SPATIAL SKILL (3 panels)
-# ------------------------------------------------------------------------------
-fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
+    fig.suptitle("FIGURE 2: Temporal Robustness Across Monthly, Daily, and Resampled Scales", y=1.02, fontweight="bold")
+    plt.tight_layout()
+    fig2_path = SYNTHESIS_FIGURES / "fig2_temporal_robustness.png"
+    fig2_pub_png = SYNTHESIS_FIGURES / "fig2_temporal_robustness_PUBLICATION.png"
+    fig2_pub_pdf = SYNTHESIS_FIGURES / "fig2_temporal_robustness_PUBLICATION.pdf"
+    plt.savefig(fig2_path, dpi=300, bbox_inches="tight")
+    plt.savefig(fig2_pub_png, dpi=300, bbox_inches="tight")
+    plt.savefig(fig2_pub_pdf, bbox_inches="tight")
+    plt.close()
+    print("  Guardada Figure 2 (PNG, PUBLICATION PNG, PUBLICATION PDF).")
 
-# Panel A: Map DeltaRMSE
-sc = axes[0].scatter(df_d35_spatial["lon"], df_d35_spatial["lat"], c=df_d35_spatial["DeltaRMSE"],
-                     cmap="coolwarm", vmin=-0.06, vmax=+0.01, s=7, alpha=0.9, edgecolors="none")
-cbar = plt.colorbar(sc, ax=axes[0], orientation="vertical", pad=0.03, shrink=0.85)
-cbar.set_label("$\Delta$RMSE (°C) [C0 − B0]")
-axes[0].set_xlabel("Longitude (°W)")
-axes[0].set_ylabel("Latitude (°N)")
-axes[0].set_title("Panel A: Cell-Level $\Delta$RMSE Map")
 
-# Panel B: Distribution of DeltaRMSE
-delta_spat = df_d35_spatial["DeltaRMSE"].values
-axes[1].hist(delta_spat, bins=40, color="#38bdf8", edgecolor="#0284c7", alpha=0.85, density=True)
-axes[1].axvline(0, color="#ef4444", linestyle="--", linewidth=1.2, label="Zero Improvement")
-axes[1].axvline(np.median(delta_spat), color="#1e40af", linestyle="-", linewidth=1.5,
-                label=f"Median: {np.median(delta_spat):.4f} °C")
-axes[1].set_xlabel("$\Delta$RMSE (°C)")
-axes[1].set_ylabel("Empirical Density")
-axes[1].set_title(f"Panel B: Distribution (5,273/5,275 Cells Improved: 99.96%)")
-axes[1].legend(loc="upper left", framealpha=0.9)
+def generate_figure_3():
+    # ------------------------------------------------------------------------------
+    # FIGURE 3 — SPATIAL SKILL (3 panels)
+    # ------------------------------------------------------------------------------
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
 
-# Panel C: DeltaRMSE by Depth Bins
-depth_bins = df_d35_depth["depth_bin"].values
-d_med = df_d35_depth["median_delta_RMSE"].values
-d_mean = df_d35_depth["mean_delta_RMSE"].values
-x_d = np.arange(len(depth_bins))
+    # Panel A: Map DeltaRMSE
+    sc = axes[0].scatter(df_d35_spatial["lon"], df_d35_spatial["lat"], c=df_d35_spatial["DeltaRMSE"],
+                         cmap="coolwarm", vmin=-0.06, vmax=+0.01, s=7, alpha=0.9, edgecolors="none")
+    cbar = plt.colorbar(sc, ax=axes[0], orientation="vertical", pad=0.03, shrink=0.85)
+    cbar.set_label("$\Delta$RMSE (°C) [C0 − B0]")
+    axes[0].set_xlabel("Longitude (°W)")
+    axes[0].set_ylabel("Latitude (°N)")
+    axes[0].set_title("Panel A: Cell-Level $\Delta$RMSE Map")
 
-axes[2].bar(x_d - 0.18, d_med, width=0.35, label="Median $\Delta$RMSE", color="#0284c7")
-axes[2].bar(x_d + 0.18, d_mean, width=0.35, label="Mean $\Delta$RMSE", color="#38bdf8")
-axes[2].axhline(0, color="#ef4444", linestyle="--", linewidth=1)
-axes[2].set_xticks(x_d)
-axes[2].set_xticklabels(depth_bins, rotation=30, ha="right")
-axes[2].set_ylabel("$\Delta$RMSE (°C)")
-axes[2].set_title("Panel C: Skill Across Bathymetric Strata")
-axes[2].legend(loc="upper right", framealpha=0.9)
+    # Panel B: Distribution of DeltaRMSE
+    delta_spat = df_d35_spatial["DeltaRMSE"].values
+    axes[1].hist(delta_spat, bins=40, color="#38bdf8", edgecolor="#0284c7", alpha=0.85, density=True)
+    axes[1].axvline(0, color="#ef4444", linestyle="--", linewidth=1.2, label="Zero Improvement")
+    axes[1].axvline(np.median(delta_spat), color="#1e40af", linestyle="-", linewidth=1.5,
+                    label=f"Median: {np.median(delta_spat):.4f} °C")
+    axes[1].set_xlabel("$\Delta$RMSE (°C)")
+    axes[1].set_ylabel("Empirical Density")
+    axes[1].set_title(f"Panel B: Distribution (5,273/5,275 Cells Improved: 99.96%)")
+    axes[1].legend(loc="upper left", framealpha=0.9)
 
-fig.suptitle("FIGURE 3: Spatial Consistency and Bathymetric Dependence Across 5,275 Cells", y=1.02, fontweight="bold")
-plt.tight_layout()
-fig3_path = SYNTHESIS_FIGURES / "fig3_spatial_skill.png"
-plt.savefig(fig3_path, dpi=300, bbox_inches="tight")
-plt.close()
-print("  Guardada Figure 3.")
+    # Panel C: DeltaRMSE by Depth Bins
+    depth_bins = df_d35_depth["depth_bin"].values
+    d_med = df_d35_depth["median_delta_RMSE"].values
+    d_mean = df_d35_depth["mean_delta_RMSE"].values
+    x_d = np.arange(len(depth_bins))
 
-# ------------------------------------------------------------------------------
-# FIGURE 4 — RESIDUAL REGIME BEHAVIOR (3 panels)
-# ------------------------------------------------------------------------------
-fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
-regimes = df_paper_t3["regime"].values
-x_reg = np.arange(len(regimes))
+    axes[2].bar(x_d - 0.18, d_med, width=0.35, label="Median $\Delta$RMSE", color="#0284c7")
+    axes[2].bar(x_d + 0.18, d_mean, width=0.35, label="Mean $\Delta$RMSE", color="#38bdf8")
+    axes[2].axhline(0, color="#ef4444", linestyle="--", linewidth=1)
+    axes[2].set_xticks(x_d)
+    axes[2].set_xticklabels(depth_bins, rotation=30, ha="right")
+    axes[2].set_ylabel("$\Delta$RMSE (°C)")
+    axes[2].set_title("Panel C: Skill Across Bathymetric Strata")
+    axes[2].legend(loc="upper right", framealpha=0.9)
 
-# Panel A: Improvement RMSE by Regime
-reg_impr = df_paper_t3["improvement_rmse_pct"].values
-colors_r = ["#f43f5e" if v < 0 else "#10b981" for v in reg_impr]
-axes[0].bar(x_reg, reg_impr, color=colors_r, edgecolor="#1e293b", width=0.6)
-axes[0].axhline(0, color="#475569", linestyle="-", linewidth=1)
-axes[0].set_xticks(x_reg)
-axes[0].set_xticklabels(regimes, rotation=35, ha="right")
-axes[0].set_ylabel("RMSE Improvement (%)")
-axes[0].set_title("Panel A: Relative Improvement by Regime")
-for i, v in enumerate(reg_impr):
-    va_pos = "top" if v < 0 else "bottom"
-    offset = -1.5 if v < 0 else 0.5
-    axes[0].text(i, v + offset, f"{v:+.1f}%", ha="center", va=va_pos, fontsize=8.5, fontweight="bold")
+    fig.suptitle("FIGURE 3: Spatial Consistency and Skill Across Bathymetric Strata (5,275 Cells)", y=1.02, fontweight="bold")
+    plt.tight_layout()
+    fig3_path = SYNTHESIS_FIGURES / "fig3_spatial_skill.png"
+    fig3_pub_png = SYNTHESIS_FIGURES / "fig3_spatial_skill_PUBLICATION.png"
+    fig3_pub_pdf = SYNTHESIS_FIGURES / "fig3_spatial_skill_PUBLICATION.pdf"
+    plt.savefig(fig3_path, dpi=300, bbox_inches="tight")
+    plt.savefig(fig3_pub_png, dpi=300, bbox_inches="tight")
+    plt.savefig(fig3_pub_pdf, bbox_inches="tight")
+    plt.close()
+    print("  Guardada Figure 3 (PNG, PUBLICATION PNG, PUBLICATION PDF).")
 
-# Panel B: Sign Accuracy by Regime
-sign_acc = df_paper_t3["sign_accuracy_pct"].values
-axes[1].plot(x_reg, sign_acc, marker="o", color="#2563eb", linewidth=2, markersize=7, label="E3b-C0 Sign Accuracy")
-axes[1].axhline(52.45, color="#ef4444", linestyle="--", linewidth=1.2, label="Majority-Sign Baseline (52.45%)")
-axes[1].set_xticks(x_reg)
-axes[1].set_xticklabels(regimes, rotation=35, ha="right")
-axes[1].set_ylabel("Accuracy (%)")
-axes[1].set_title("Panel B: Residual Sign Discrimination")
-axes[1].set_ylim(45, 95)
-axes[1].legend(loc="lower right", framealpha=0.9)
-for i, v in enumerate(sign_acc):
-    axes[1].text(i, v + 1.8, f"{v:.1f}%", ha="center", va="bottom", fontsize=8.5)
 
-# Panel C: std ratio std(Rhat)/std(R) by Regime
-std_ratios = df_paper_t3["std_ratio_rhat_r_if_available"].values
-axes[2].bar(x_reg, std_ratios, color="#64748b", edgecolor="#1e293b", width=0.55)
-axes[2].axhline(1.0, color="#ef4444", linestyle="--", linewidth=1.2, label="No Shrinkage (Ratio = 1.0)")
-axes[2].set_xticks(x_reg)
-axes[2].set_xticklabels(regimes, rotation=35, ha="right")
-axes[2].set_ylabel("Ratio $\mathrm{std}(\hat{R}) / \mathrm{std}(R)$")
-axes[2].set_title("Panel C: Amplitude Compression Ratio")
-axes[2].set_ylim(0, 1.15)
-axes[2].legend(loc="upper right", framealpha=0.9)
-for i, v in enumerate(std_ratios):
-    axes[2].text(i, v + 0.02, f"{v:.2f}", ha="center", va="bottom", fontsize=8.5)
+def generate_figure_4():
+    # ------------------------------------------------------------------------------
+    # FIGURE 4 — RESIDUAL REGIME BEHAVIOR (3 panels)
+    # ------------------------------------------------------------------------------
+    fig, axes = plt.subplots(1, 3, figsize=(15, 4.5), dpi=300)
+    regimes = df_paper_t3["regime"].values
+    x_reg = np.arange(len(regimes))
 
-fig.suptitle("FIGURE 4: Residual Regime Dependence and Trade-Off Between Noise and Structure", y=1.02, fontweight="bold")
-plt.tight_layout()
-fig4_path = SYNTHESIS_FIGURES / "fig4_residual_regimes.png"
-plt.savefig(fig4_path, dpi=300, bbox_inches="tight")
-plt.close()
-print("  Guardada Figure 4.")
+    # Panel A: Improvement RMSE by Regime
+    reg_impr = df_paper_t3["improvement_rmse_pct"].values
+    colors_r = ["#f43f5e" if v < 0 else "#10b981" for v in reg_impr]
+    axes[0].bar(x_reg, reg_impr, color=colors_r, edgecolor="#1e293b", width=0.6)
+    axes[0].axhline(0, color="#475569", linestyle="-", linewidth=1)
+    axes[0].set_xticks(x_reg)
+    axes[0].set_xticklabels(regimes, rotation=35, ha="right")
+    axes[0].set_ylabel("RMSE Improvement (%)")
+    axes[0].set_title("Panel A: Relative Improvement by Regime")
+    for i, v in enumerate(reg_impr):
+        va_pos = "top" if v < 0 else "bottom"
+        offset = -1.5 if v < 0 else 0.5
+        axes[0].text(i, v + offset, f"{v:+.1f}%", ha="center", va=va_pos, fontsize=8.5, fontweight="bold")
 
-# ------------------------------------------------------------------------------
-# FIGURE 5 — HISTORICAL DESCRIPTIVE SKILL (1 panel)
-# ------------------------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(8.5, 4.5), dpi=300)
-hist_periods = ["2021 Diagnostic Holdout\n(Train 2015–2020)",
-                "2022–2023 Validation\n(Train 2015–2021)",
-                "2024–2025 Final Test\n(Train 2015–2023)"]
-hist_imprs = [2.84243, 3.52371, 7.22466]
-x_hist = np.arange(len(hist_periods))
+    # Panel B: Sign Accuracy by Regime
+    sign_acc = df_paper_t3["sign_accuracy_pct"].values
+    axes[1].plot(x_reg, sign_acc, marker="o", color="#2563eb", linewidth=2, markersize=7, label="E3b-C0 Sign Accuracy")
+    axes[1].axhline(52.45, color="#ef4444", linestyle="--", linewidth=1.2, label="Majority-Sign Baseline (52.45%)")
+    axes[1].set_xticks(x_reg)
+    axes[1].set_xticklabels(regimes, rotation=35, ha="right")
+    axes[1].set_ylabel("Accuracy (%)")
+    axes[1].set_title("Panel B: Residual Sign Discrimination")
+    axes[1].set_ylim(45, 95)
+    axes[1].legend(loc="lower right", framealpha=0.9)
+    for i, v in enumerate(sign_acc):
+        axes[1].text(i, v + 1.8, f"{v:.1f}%", ha="center", va="bottom", fontsize=8.5)
 
-bars_h = ax.bar(x_hist, hist_imprs, color=["#93c5fd", "#60a5fa", "#1d4ed8"], edgecolor="#1e293b", width=0.45)
-ax.set_ylabel("RMSE Relative Improvement (%)")
-ax.set_title("FIGURE 5: Descriptive Historical Skill Across Experimental Phases", pad=15, fontweight="bold")
-ax.set_xticks(x_hist)
-ax.set_xticklabels(hist_periods)
-ax.set_ylim(0, 9.5)
-ax.grid(axis="y", linestyle=":", alpha=0.6)
+    # Panel C: std ratio std(Rhat)/std(R) by Regime
+    std_ratios = df_paper_t3["std_ratio_rhat_r_if_available"].values
+    axes[2].bar(x_reg, std_ratios, color="#64748b", edgecolor="#1e293b", width=0.55)
+    axes[2].axhline(1.0, color="#ef4444", linestyle="--", linewidth=1.2, label="No Shrinkage (Ratio = 1.0)")
+    axes[2].set_xticks(x_reg)
+    axes[2].set_xticklabels(regimes, rotation=35, ha="right")
+    axes[2].set_ylabel("Ratio $\mathrm{std}(\hat{R}) / \mathrm{std}(R)$")
+    axes[2].set_title("Panel C: Within-Regime Amplitude Ratio")
+    axes[2].set_ylim(0, 1.15)
+    axes[2].legend(loc="upper right", framealpha=0.9)
+    for i, v in enumerate(std_ratios):
+        axes[2].text(i, v + 0.02, f"{v:.2f}", ha="center", va="bottom", fontsize=8.5)
 
-for bar, val in zip(bars_h, hist_imprs):
-    ax.text(bar.get_x() + bar.get_width()/2, val + 0.25, f"+{val:.2f}%", ha="center", va="bottom", fontweight="bold", fontsize=10)
+    axes[2].text(0.46, 0.60, "Global TEST ratio = 0.2536",
+                 transform=axes[2].transAxes, ha="center", va="center", fontsize=8.5, color="#1e293b",
+                 bbox=dict(boxstyle="round,pad=0.35", facecolor="#ffffff", edgecolor="#cbd5e1", alpha=0.92, linewidth=0.8))
 
-ax.text(0.5, -0.22, "Note: Different fitted estimators and progressively larger training windows were used.\nThis comparison is strictly descriptive and does not represent a same-estimator generalization trajectory.",
-        transform=ax.transAxes, ha="center", va="top", fontsize=8.5, style="italic", color="#475569")
+    fig.suptitle("FIGURE 4: Residual-Magnitude Dependence and Prediction Behavior", y=1.02, fontweight="bold")
+    plt.tight_layout()
+    fig4_path = SYNTHESIS_FIGURES / "fig4_residual_regimes.png"
+    fig4_pub_png = SYNTHESIS_FIGURES / "fig4_residual_regimes_PUBLICATION.png"
+    fig4_pub_pdf = SYNTHESIS_FIGURES / "fig4_residual_regimes_PUBLICATION.pdf"
+    plt.savefig(fig4_path, dpi=300, bbox_inches="tight")
+    plt.savefig(fig4_pub_png, dpi=300, bbox_inches="tight")
+    plt.savefig(fig4_pub_pdf, bbox_inches="tight")
+    plt.close()
+    print("  Guardada Figure 4 (PNG, PUBLICATION PNG, PUBLICATION PDF).")
 
-plt.tight_layout()
-fig5_path = SYNTHESIS_FIGURES / "fig5_historical_skill.png"
-plt.savefig(fig5_path, dpi=300, bbox_inches="tight")
-plt.close()
-print("  Guardada Figure 5.")
+
+def generate_figure_5():
+    # ------------------------------------------------------------------------------
+    # FIGURE 5 — HISTORICAL DESCRIPTIVE SKILL (1 panel)
+    # ------------------------------------------------------------------------------
+    fig, ax = plt.subplots(figsize=(8.5, 4.5), dpi=300)
+    hist_periods = ["2021 Diagnostic Holdout\n(Train 2015–2020)",
+                    "2022–2023 Validation\n(Train 2015–2021)",
+                    "2024–2025 Final Test\n(Train 2015–2023)"]
+    hist_imprs = [2.84243, 3.52371, 7.22466]
+    x_hist = np.arange(len(hist_periods))
+
+    bars_h = ax.bar(x_hist, hist_imprs, color=["#93c5fd", "#60a5fa", "#1d4ed8"], edgecolor="#1e293b", width=0.45)
+    ax.set_ylabel("RMSE Relative Improvement (%)")
+    ax.set_title("FIGURE 5: Descriptive Historical Skill Across Experimental Phases", pad=15, fontweight="bold")
+    ax.set_xticks(x_hist)
+    ax.set_xticklabels(hist_periods)
+    ax.set_ylim(0, 9.5)
+    ax.grid(axis="y", linestyle=":", alpha=0.6)
+
+    for bar, val in zip(bars_h, hist_imprs):
+        ax.text(bar.get_x() + bar.get_width()/2, val + 0.25, f"+{val:.2f}%", ha="center", va="bottom", fontweight="bold", fontsize=10)
+
+    ax.text(0.5, -0.22, "Note: Different fitted estimators and progressively larger training windows were used.\nThis comparison is strictly descriptive and does not represent a same-estimator generalization trajectory.",
+            transform=ax.transAxes, ha="center", va="top", fontsize=8.5, style="italic", color="#475569")
+
+    plt.tight_layout()
+    fig5_path = SYNTHESIS_FIGURES / "fig5_historical_skill.png"
+    fig5_sup_png = SYNTHESIS_FIGURES / "fig5_historical_skill_SUPPLEMENT.png"
+    fig5_sup_pdf = SYNTHESIS_FIGURES / "fig5_historical_skill_SUPPLEMENT.pdf"
+    plt.savefig(fig5_path, dpi=300, bbox_inches="tight")
+    plt.savefig(fig5_sup_png, dpi=300, bbox_inches="tight")
+    plt.savefig(fig5_sup_pdf, bbox_inches="tight")
+    plt.close()
+    print("  Guardada Figure 5 (PNG, SUPPLEMENT PNG, SUPPLEMENT PDF).")
+
+
+TARGET_FIGURE = None
+for i, arg in enumerate(sys.argv[1:]):
+    if arg.startswith("--fig="):
+        TARGET_FIGURE = arg.split("=")[1].strip()
+    elif arg in ["--fig", "-f"] and i + 1 < len(sys.argv[1:]):
+        TARGET_FIGURE = sys.argv[1:][i + 1].strip()
+
+if TARGET_FIGURE is None or TARGET_FIGURE in ["1", "fig1"]:
+    generate_figure_1()
+if TARGET_FIGURE is None or TARGET_FIGURE in ["2", "fig2"]:
+    generate_figure_2()
+if TARGET_FIGURE is None or TARGET_FIGURE in ["3", "fig3"]:
+    generate_figure_3()
+if TARGET_FIGURE is None or TARGET_FIGURE in ["4", "fig4"]:
+    generate_figure_4()
+if TARGET_FIGURE is None or TARGET_FIGURE in ["5", "fig5"]:
+    generate_figure_5()
+
+if TARGET_FIGURE is not None:
+    print(f"Fase D.3.6: Regeneración selectiva de Figura {TARGET_FIGURE} completada.")
+    sys.exit(0)
 
 # ==============================================================================
 # 11. GUÍA DE SELECCIÓN DE FIGURAS: FIGURE_SELECTION_GUIDE.md
@@ -1058,8 +1114,8 @@ This guide establishes the assignment and placement of figures across the thesis
 |---|---|:---:|---|---|
 | **Figure 1** | Final Test Global Performance | 3 (RMSE, MAE, % Impr) | **PAPER MAIN** / THESIS | Documents primary confirmatory results on withheld 2024–2025 test. |
 | **Figure 2** | Temporal Robustness | 3 (Monthly, Daily, Bootstrap) | **PAPER MAIN** / THESIS | Visualizes day-to-day variability and 14-day moving block robustness. |
-| **Figure 3** | Spatial Skill & Bathymetry | 3 (Map, Density, Depth Bins) | **PAPER MAIN** / THESIS | Confirms 99.96% spatial generalization and depth-dependent skill. |
-| **Figure 4** | Residual Regime Behavior | 3 (Impr, Sign Acc, Shrinkage) | **PAPER MAIN** / THESIS | Explains the physical/statistical trade-off across $|R|$ magnitudes. |
+| **Figure 3** | Spatial Consistency & Skill Across Bathymetric Strata (5,275 Cells) | 3 (Map, Density, Depth Bins) | **PAPER MAIN** / THESIS | Confirms 99.96% spatial generalization and depth-dependent skill across strata. |
+| **Figure 4** | Residual-Magnitude Dependence and Prediction Behavior | 3 (Impr, Sign Acc, Shrinkage) | **PAPER MAIN** / THESIS | Explains the mechanistic trade-off across $|R|$ discrepancy regimes. |
 | **Figure 5** | Descriptive Historical Skill | 1 (Bar Comparison) | **PAPER SUPPLEMENT** / THESIS | Contextualizes progression from D32 to D35 with explicit caveats. |
 
 ---
@@ -1069,11 +1125,16 @@ This guide establishes the assignment and placement of figures across the thesis
 ### Package A: ICITS'27 Conference Paper (Compact 4-Figure Core)
 - **Main Text Figures:**
   1. `Figure 1`: Core confirmatory outcome (2024, 2025, Combined RMSE and MAE).
+     - Files: `fig1_final_performance_PUBLICATION.png` / `fig1_final_performance_PUBLICATION.pdf`
   2. `Figure 2`: Temporal generalization (Monthly bar chart, daily rolling series, moving-block bootstrap).
-  3. `Figure 3`: Spatial distribution of skill across the 5,275 corridor cells.
-  4. `Figure 4`: Mechanistic regime breakdown showing why the model helps large errors but degrades tiny noise.
+     - Files: `fig2_temporal_robustness_PUBLICATION.png` / `fig2_temporal_robustness_PUBLICATION.pdf`
+  3. `Figure 3`: Spatial consistency and skill across bathymetric strata (5,275 cells).
+     - Files: `fig3_spatial_skill_PUBLICATION.png` / `fig3_spatial_skill_PUBLICATION.pdf`
+  4. `Figure 4`: Residual-magnitude dependence and prediction behavior (gain in large baseline discrepancies, shrinkage in low-discrepancy regime).
+     - Files: `fig4_residual_regimes_PUBLICATION.png` / `fig4_residual_regimes_PUBLICATION.pdf`
 - **Supplementary / Appendix:**
-  - `Figure 5`: Historical comparison with earlier development holdouts.
+  - `Figure 5`: Descriptive historical comparison across experimental phases (distinct fitted estimators).
+    - Files: `fig5_historical_skill_SUPPLEMENT.png` / `fig5_historical_skill_SUPPLEMENT.pdf`
   - Phase D31 diagnostic feature importance & ablation charts.
   - Phase D34 detailed negative-month diagnostic time series.
 
@@ -1373,9 +1434,12 @@ Performance was quantified using Root Mean Square Error (RMSE), Mean Absolute Er
 
 Statistical significance under temporal autocorrelation was established via moving-block bootstrap ($B = 1,000$ iterations) over daily sum-of-squared-errors (SSE) using block lengths of 1, 7, and 14 days. Spatial robustness was assessed across the 5,275 individual cell time series.
 """
-with open(SYNTHESIS_REPORTS / "paper_methods_ML.md", "w", encoding="utf-8") as f:
-    f.write(paper_methods_content)
-print("Generado reporte: paper_methods_ML.md")
+if not (SYNTHESIS_REPORTS / "paper_methods_ML.md").exists():
+    with open(SYNTHESIS_REPORTS / "paper_methods_ML.md", "w", encoding="utf-8") as f:
+        f.write(paper_methods_content)
+    print("Generado reporte: paper_methods_ML.md")
+else:
+    print("Conservado reporte curado: paper_methods_ML.md")
 
 # 13.2 paper_results_ML.md
 paper_results_content = """# Paper-Ready Results: Machine Learning Residual Downscaling
@@ -1426,11 +1490,14 @@ Efficacy varied dramatically as a function of the baseline discrepancy $|R|$:
 - **Intermediate regime (`DEV-P50-P75`, $0.21–0.36^\circ\text{C}$, 24.35% of data):** Improvement was positive at **+3.51%** (Sign accuracy: 65.8%).
 - **High discrepancy regimes (`DEV-P75-P90`, `DEV-P90-P95`, `DEV-P95-P99`, `DEV-P99+`):** Improvements grew monotonically from **+7.48%** to **+12.07%**, where sign accuracy exceeded 82% to 87%.
 
-The substantial gains in the upper 52% of the distribution comfortably surpassed the minor degradation in the near-zero noise floor.
+The substantial gains in the upper 52% of the distribution comfortably surpassed the degradation in the low-discrepancy regime.
 """
-with open(SYNTHESIS_REPORTS / "paper_results_ML.md", "w", encoding="utf-8") as f:
-    f.write(paper_results_content)
-print("Generado reporte: paper_results_ML.md")
+if not (SYNTHESIS_REPORTS / "paper_results_ML.md").exists():
+    with open(SYNTHESIS_REPORTS / "paper_results_ML.md", "w", encoding="utf-8") as f:
+        f.write(paper_results_content)
+    print("Generado reporte: paper_results_ML.md")
+else:
+    print("Conservado reporte curado: paper_results_ML.md")
 
 # 13.3 paper_discussion_ML.md
 paper_discussion_content = """# Paper-Ready Discussion: Machine Learning Residual Downscaling
@@ -1445,9 +1512,9 @@ The final test gain (+7.22%) is noticeably higher than the gains observed during
 A central finding is the spatial breadth of model skill: 99.96% of the 5,275 evaluated cells improved over bilinear interpolation. Crucially, the magnitude of improvement was strongly correlated with bathymetry ($\rho = +0.7376$) and proximity to coast ($\rho = +0.5336$). Coarse OISST pixels (0.25°) blend coastal land contamination with shallow reef lagoons; `E3b-C0` effectively learns this persistent local bias, yielding the highest absolute error reductions in the 0–20 m bathymetric belt. In open, deep waters (>500 m), baseline bilinear interpolation is already smooth and accurate, leaving less structured residual to extract.
 
 ### 4. The low-residual trade-off and amplitude compression
-When the coarse baseline is already very close to the high-resolution reference ($|R| < 0.21^\circ\text{C}$), the residual signal is dominated by unstructured measurement noise and atmospheric retrieval artifacts. In this regime, the model suffers a -20.99% degradation due to lower sign agreement (56.4%). Conversely, when $|R| > 0.50^\circ\text{C}$, the residual signal reflects genuine physical gradients, where sign accuracy reaches 75%–87% and RMSE improves by +9% to +12%.
+When the coarse baseline is already very close to the high-resolution reference ($|R| < 0.21^\circ\text{C}$), the residual signal is within nominal retrieval uncertainty and representation differences between products. In this regime, the model suffers a -20.99% degradation due to lower sign agreement (56.4%). Conversely, when $|R| > 0.50^\circ\text{C}$, the residual signal reflects genuine physical gradients, where sign accuracy reaches 75%–87% and RMSE improves by +9% to +12%.
 
-Because gradient-boosted regression trees minimize mean squared error under substantial irreducible noise, predictions exhibit pronounced amplitude compression ($\mathrm{std}(\hat{R})/\mathrm{std}(R) = 0.2536$). The model acts conservatively, shrinking estimates toward the conditional mean and avoiding destructive high-frequency noise injection.
+Because gradient-boosted regression trees minimize mean squared error under substantial residual variance, predictions exhibit pronounced amplitude compression ($\mathrm{std}(\hat{R})/\mathrm{std}(R) = 0.2536$). The model acts conservatively, shrinking estimates toward the conditional mean and avoiding unwarranted variance injection.
 
 ### 5. Temporal stability and month-level variability
 Although the model was positive in both full test years and across 66.2% of individual days, six individual months in 2025 experienced minor net degradations. Rather than invoking unverified oceanographic mechanisms (e.g., upwelling shifts or frontal displacements), diagnostic auditing confirms that these lower-performing months coincided with temporary drops in residual-sign agreement.
@@ -1458,9 +1525,12 @@ It is essential to emphasize what this model does and does not accomplish:
 - It **does not** fully reconstruct turbulent submesoscale eddies or coastal current dynamics ($R^2_{\mathrm{residual}} = 0.112$).
 - MUR SST is utilized here as a high-resolution satellite reference grid, not as absolute, in-situ ground truth.
 """
-with open(SYNTHESIS_REPORTS / "paper_discussion_ML.md", "w", encoding="utf-8") as f:
-    f.write(paper_discussion_content)
-print("Generado reporte: paper_discussion_ML.md")
+if not (SYNTHESIS_REPORTS / "paper_discussion_ML.md").exists():
+    with open(SYNTHESIS_REPORTS / "paper_discussion_ML.md", "w", encoding="utf-8") as f:
+        f.write(paper_discussion_content)
+    print("Generado reporte: paper_discussion_ML.md")
+else:
+    print("Conservado reporte curado: paper_discussion_ML.md")
 
 # 13.4 ML_FINAL_SYNTHESIS.md
 master_synthesis_content = """# Master Machine Learning Synthesis: Phases D.3.1 to D.3.5
@@ -1521,7 +1591,7 @@ Phase D.3.3 tested frozen `E3b-C0` weights on the two-year external period 2022�
 Phase D.3.4 conducted an exhaustive diagnostic audit of D.3.3:
 - Verified zero code bugs or data contamination.
 - Demonstrated that moving-block bootstrap (7d and 14d) confirmed statistical significance.
-- Identified the low-residual noise trade-off ($|R| < 0.20^\circ\text{C}$) as the primary driver of negative months.
+- Identified the low-discrepancy trade-off ($|R| < 0.20^\circ\text{C}$) as the primary driver of negative months.
 - Unanimously issued recommendation: **`PREPARE FINAL TEST`**.
 
 ---
@@ -1579,7 +1649,7 @@ The refit model was evaluated in a single irreversible pass on 2024–2025:
 ---
 
 ## 15. Residual-Regime Dependence
-- `DEV-P0-P50` ($|R| < 0.21^\circ\text{C}$): -20.99% (noise degradation).
+- `DEV-P0-P50` ($|R| < 0.21^\circ\text{C}$): -20.99% (low-discrepancy shrinkage penalty).
 - `DEV-P50-P75` ($0.21–0.36^\circ\text{C}$): +3.51%.
 - `DEV-P75-P90` ($0.36–0.54^\circ\text{C}$): +7.48%.
 - `DEV-P90-P95` ($0.54–0.67^\circ\text{C}$): +9.21%.
@@ -1589,13 +1659,13 @@ The refit model was evaluated in a single irreversible pass on 2024–2025:
 ---
 
 ## 16. Scientific Interpretation
-The residual tabular approach functions as a structured spatial-climatological bias corrector. It reliably improves downscaled fields by suppressing coarse coastal errors where depth gradients and seasonal forcing create persistent offsets, while conservatively damping noise through amplitude compression.
+The residual tabular approach functions as a structured spatial-climatological bias corrector. It reliably improves downscaled fields by suppressing coarse coastal errors where depth gradients and seasonal forcing create persistent offsets, while conservatively shrinking predictions toward the conditional mean through amplitude compression.
 
 ---
 
 ## 17. Limitations
 1. Ineffective for near-zero residuals ($|R| < 0.21^\circ\text{C}$).
-2. Unexplained variance remains high ($88.8\%$ residual variance is stochastic).
+2. Unexplained variance remains high ($88.8\%$ residual variance remains unmodeled).
 3. Residual amplitude is compressed by ~75%.
 4. No explicit atmospheric or hydrodynamic terms are modeled.
 5. MUR is treated as an operational benchmark, not absolute truth.

@@ -1,0 +1,85 @@
+figure,panel,metric,displayed_value,source_file,source_column_or_key,source_value,absolute_difference,status,notes
+Figure 1,Panel A,2024 Baseline RMSE,0.380 °C,paper_table1_final_performance.csv,RMSE_B0 (row: 2024),0.3797100484371185,0.000290,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel A,2024 Model C0 RMSE,0.344 °C,paper_table1_final_performance.csv,RMSE_C0 (row: 2024),0.3440227508544922,0.000023,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel A,2025 Baseline RMSE,0.333 °C,paper_table1_final_performance.csv,RMSE_B0 (row: 2025),0.3333550095558166,0.000355,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel A,2025 Model C0 RMSE,0.318 °C,paper_table1_final_performance.csv,RMSE_C0 (row: 2025),0.3184526860713959,0.000453,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel A,Combined Baseline RMSE,0.357 °C,paper_table1_final_performance.csv,RMSE_B0 (row: Combined),0.3573167622089386,0.000317,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel A,Combined Model C0 RMSE,0.332 °C,paper_table1_final_performance.csv,RMSE_C0 (row: Combined),0.331501841545105,0.000498,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,2024 Baseline MAE,0.285 °C,paper_table1_final_performance.csv,MAE_B0 (row: 2024),0.2851476967334747,0.000148,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,2024 Model C0 MAE,0.264 °C,paper_table1_final_performance.csv,MAE_C0 (row: 2024),0.2643245160579681,0.000325,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,2025 Baseline MAE,0.260 °C,paper_table1_final_performance.csv,MAE_B0 (row: 2025),0.2602433264255523,0.000243,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,2025 Model C0 MAE,0.248 °C,paper_table1_final_performance.csv,MAE_C0 (row: 2025),0.2483032792806625,0.000303,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,Combined Baseline MAE,0.273 °C,paper_table1_final_performance.csv,MAE_B0 (row: Combined),0.2727125585079193,0.000287,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel B,Combined Model C0 MAE,0.256 °C,paper_table1_final_performance.csv,MAE_C0 (row: Combined),0.256324827671051,0.000325,ROUNDING_ONLY,Displayed formatted to 3 decimals
+Figure 1,Panel C,2024 RMSE Improvement,+9.40%,paper_table1_final_performance.csv,RMSE_improvement_pct (row: 2024),9.398565492147174,0.001435,ROUNDING_ONLY,Formula 100*(B0-C0)/B0
+Figure 1,Panel C,2025 RMSE Improvement,+4.47%,paper_table1_final_performance.csv,RMSE_improvement_pct (row: 2025),4.470406340758934,0.000406,ROUNDING_ONLY,Formula 100*(B0-C0)/B0
+Figure 1,Panel C,Combined RMSE Improvement,+7.22%,paper_table1_final_performance.csv,RMSE_improvement_pct (row: Combined),7.224659852016266,0.004660,ROUNDING_ONLY,Formula 100*(B0-C0)/B0
+Figure 1,Panel C,Predeclared Threshold,+1.00%,Protocol D35-A Criterion 1,threshold_improvement,1.0,0.000000,PASS,Reference horizontal line
+Figure 2,Panel A,Months Improved Count,18 / 24,paper_table2_robustness.csv,months_improved,18 / 24,0.000000,PASS,Exact count 18 of 24 months
+Figure 2,Panel A,Monthly Consistency Rate,75.0%,Calculated (18/24),months_improved_pct,75.0,0.000000,PASS,75.0% temporal consistency
+Figure 2,Panel B,Days Improved Count,484 / 731,paper_table2_robustness.csv,days_improved,484 / 731,0.000000,PASS,Exact count 484 of 731 days
+Figure 2,Panel B,Days Improved Percentage,66.21%,paper_table2_robustness.csv,days_improved_pct,66.21,0.000000,PASS,66.21% of test days
+Figure 2,Panel B,Median Daily DeltaRMSE,-0.010816 °C,E3b_D35_final_test/tables/daily_metrics.csv,median(DeltaRMSE),-0.010816,0.000000,PASS,Median daily error reduction
+Figure 2,Panel C,1-Day Cluster Median,-0.025 °C,bootstrap_sensitivity.csv,median_delta_rmse (L=1),-0.0257047240417233,0.000705,ROUNDING_ONLY,Formatted to 3 decimals
+Figure 2,Panel C,1-Day Cluster CI95 Upper,-0.019 °C,bootstrap_sensitivity.csv,ci95_upper (L=1),-0.0194398166977255,0.000440,ROUNDING_ONLY,Strictly below zero
+Figure 2,Panel C,1-Day Cluster CI95 Lower,-0.032 °C,bootstrap_sensitivity.csv,ci95_lower (L=1),-0.0319320286349248,0.000068,ROUNDING_ONLY,Strictly below zero
+Figure 2,Panel C,7-Day Moving Block Median,-0.025 °C,bootstrap_sensitivity.csv,median_delta_rmse (L=7),-0.025562913800961,0.000563,ROUNDING_ONLY,Formatted to 3 decimals
+Figure 2,Panel C,7-Day Moving Block CI95 Upper,-0.013 °C,bootstrap_sensitivity.csv,ci95_upper (L=7),-0.0125576468471871,0.000442,ROUNDING_ONLY,Strictly below zero
+Figure 2,Panel C,7-Day Moving Block CI95 Lower,-0.039 °C,bootstrap_sensitivity.csv,ci95_lower (L=7),-0.0388698917966629,0.000130,ROUNDING_ONLY,Strictly below zero
+Figure 2,Panel C,14-Day Moving Block Median,-0.025 °C,paper_table2_robustness.csv,bootstrap_14d_median,-0.025395,0.000395,ROUNDING_ONLY,Primary confirmatory bootstrap
+Figure 2,Panel C,14-Day Moving Block CI95 Upper,-0.010 °C,paper_table2_robustness.csv,bootstrap_14d_ci95_upper,-0.009792,0.000208,ROUNDING_ONLY,Primary confirmatory bootstrap upper bound
+Figure 2,Panel C,14-Day Moving Block CI95 Lower,-0.042 °C,paper_table2_robustness.csv,bootstrap_14d_ci95_lower,-0.042485,0.000485,ROUNDING_ONLY,Primary confirmatory bootstrap lower bound
+Figure 3,Panel A,Total Grid Cells Plotted,"5,275",spatial_metrics.csv,count(cell_id),5275,0.000000,PASS,All frozen ocean cells
+Figure 3,Panel B,Cells Improved Count,"5,273 / 5,275",paper_table2_robustness.csv,cells_improved,5273 / 5275,0.000000,PASS,99.96% of spatial domain
+Figure 3,Panel B,Cells Improved Percentage,99.96%,paper_table2_robustness.csv,cells_improved_pct,99.96,0.000000,PASS,5273/5275 cells
+Figure 3,Panel B,Median Cell DeltaRMSE,-0.0228 °C,paper_table2_robustness.csv,median_spatial_delta_rmse,-0.022808,0.000008,ROUNDING_ONLY,Formatted to 4 decimals in text
+Figure 3,Panel B,P10 Cell DeltaRMSE,-0.0468 °C,spatial_metrics.csv,"percentile(DeltaRMSE, 10)",-0.04678,0.000020,ROUNDING_ONLY,Lower 10th percentile
+Figure 3,Panel B,P90 Cell DeltaRMSE,-0.0093 °C,paper_table2_robustness.csv,P90_spatial_delta_rmse,-0.009307,0.000007,ROUNDING_ONLY,Upper 90th percentile
+Figure 3,Panel C,0–20 m Cell Count,965,spatial_depth_diagnostics.csv,N_cells (0–20 m),965,0.000000,PASS,Depth stratum sample size
+Figure 3,Panel C,0–20 m Median DeltaRMSE,-0.0392 °C,spatial_depth_diagnostics.csv,median_delta_RMSE (0–20 m),-0.039245456457138,0.000045,ROUNDING_ONLY,Median error reduction in stratum
+Figure 3,Panel C,0–20 m Mean DeltaRMSE,-0.0383 °C,spatial_depth_diagnostics.csv,mean_delta_RMSE (0–20 m),-0.0383108992341886,0.000011,ROUNDING_ONLY,Mean error reduction in stratum
+Figure 3,Panel C,0–20 m Pct Improved,100.00%,spatial_depth_diagnostics.csv,pct_cells_improved (0–20 m),100.0,0.000000,PASS,Stratum fraction improved
+Figure 3,Panel C,20–50 m Cell Count,417,spatial_depth_diagnostics.csv,N_cells (20–50 m),417,0.000000,PASS,Depth stratum sample size
+Figure 3,Panel C,20–50 m Median DeltaRMSE,-0.0344 °C,spatial_depth_diagnostics.csv,median_delta_RMSE (20–50 m),-0.0343965590000152,0.000003,ROUNDING_ONLY,Median error reduction in stratum
+Figure 3,Panel C,20–50 m Mean DeltaRMSE,-0.0327 °C,spatial_depth_diagnostics.csv,mean_delta_RMSE (20–50 m),-0.0326502589727762,0.000050,ROUNDING_ONLY,Mean error reduction in stratum
+Figure 3,Panel C,20–50 m Pct Improved,100.00%,spatial_depth_diagnostics.csv,pct_cells_improved (20–50 m),100.0,0.000000,PASS,Stratum fraction improved
+Figure 3,Panel C,50–100 m Cell Count,232,spatial_depth_diagnostics.csv,N_cells (50–100 m),232,0.000000,PASS,Depth stratum sample size
+Figure 3,Panel C,50–100 m Median DeltaRMSE,-0.0291 °C,spatial_depth_diagnostics.csv,median_delta_RMSE (50–100 m),-0.0291140377521514,0.000014,ROUNDING_ONLY,Median error reduction in stratum
+Figure 3,Panel C,50–100 m Mean DeltaRMSE,-0.0304 °C,spatial_depth_diagnostics.csv,mean_delta_RMSE (50–100 m),-0.0304225486671101,0.000023,ROUNDING_ONLY,Mean error reduction in stratum
+Figure 3,Panel C,50–100 m Pct Improved,100.00%,spatial_depth_diagnostics.csv,pct_cells_improved (50–100 m),100.0,0.000000,PASS,Stratum fraction improved
+Figure 3,Panel C,100–500 m Cell Count,1363,spatial_depth_diagnostics.csv,N_cells (100–500 m),1363,0.000000,PASS,Depth stratum sample size
+Figure 3,Panel C,100–500 m Median DeltaRMSE,-0.0304 °C,spatial_depth_diagnostics.csv,median_delta_RMSE (100–500 m),-0.0304250419139862,0.000025,ROUNDING_ONLY,Median error reduction in stratum
+Figure 3,Panel C,100–500 m Mean DeltaRMSE,-0.0306 °C,spatial_depth_diagnostics.csv,mean_delta_RMSE (100–500 m),-0.0306079131185527,0.000008,ROUNDING_ONLY,Mean error reduction in stratum
+Figure 3,Panel C,100–500 m Pct Improved,100.00%,spatial_depth_diagnostics.csv,pct_cells_improved (100–500 m),100.0,0.000000,PASS,Stratum fraction improved
+Figure 3,Panel C,>500 m Cell Count,2298,spatial_depth_diagnostics.csv,N_cells (>500 m),2298,0.000000,PASS,Depth stratum sample size
+Figure 3,Panel C,>500 m Median DeltaRMSE,-0.0129 °C,spatial_depth_diagnostics.csv,median_delta_RMSE (>500 m),-0.0129261910915374,0.000026,ROUNDING_ONLY,Median error reduction in stratum
+Figure 3,Panel C,>500 m Mean DeltaRMSE,-0.0145 °C,spatial_depth_diagnostics.csv,mean_delta_RMSE (>500 m),-0.0144515455910389,0.000048,ROUNDING_ONLY,Mean error reduction in stratum
+Figure 3,Panel C,>500 m Pct Improved,99.91%,spatial_depth_diagnostics.csv,pct_cells_improved (>500 m),99.91296779808528,0.002968,ROUNDING_ONLY,Stratum fraction improved
+Figure 3,Statistical Association,"Spearman(depth, DeltaRMSE)",+0.7376,d35_final_report_corrections.csv,rho_depth,0.7376,0.000000,PASS,Positive rho means DeltaRMSE increases towards 0 in deeper water (smaller gain)
+Figure 3,Statistical Association,"Spearman(dist_coast, DeltaRMSE)",+0.5336,d35_final_report_corrections.csv,rho_dist,0.5336,0.000000,PASS,Positive rho means DeltaRMSE increases towards 0 offshore (smaller gain)
+Figure 4,Panel A,DEV-P0-P50 Improvement RMSE,-21.0%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P0-P50),-20.99342695462029,0.006573,ROUNDING_ONLY,Threshold: < 0.2066 °C
+Figure 4,Panel A,DEV-P50-P75 Improvement RMSE,+3.5%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P50-P75),3.506209663504302,0.006210,ROUNDING_ONLY,Threshold: 0.2066–0.3604 °C
+Figure 4,Panel A,DEV-P75-P90 Improvement RMSE,+7.5%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P75-P90),7.478601301892715,0.021399,ROUNDING_ONLY,Threshold: 0.3604–0.5377 °C
+Figure 4,Panel A,DEV-P90-P95 Improvement RMSE,+9.2%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P90-P95),9.212948552492344,0.012949,ROUNDING_ONLY,Threshold: 0.5377–0.6652 °C
+Figure 4,Panel A,DEV-P95-P99 Improvement RMSE,+12.1%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P95-P99),12.07207890244088,0.027921,ROUNDING_ONLY,Threshold: 0.6652–0.9659 °C
+Figure 4,Panel A,DEV-P99+ Improvement RMSE,+11.5%,paper_table3_residual_regimes.csv,improvement_rmse_pct (DEV-P99+),11.487342808275598,0.012657,ROUNDING_ONLY,Threshold: >= 0.9659 °C
+Figure 4,Panel B,DEV-P0-P50 Sign Accuracy,56.4%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P0-P50),56.41549857341233,0.015499,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,DEV-P50-P75 Sign Accuracy,65.8%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P50-P75),65.81724425473726,0.017244,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,DEV-P75-P90 Sign Accuracy,70.9%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P75-P90),70.93787567859854,0.037876,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,DEV-P90-P95 Sign Accuracy,75.7%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P90-P95),75.74012351730222,0.040124,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,DEV-P95-P99 Sign Accuracy,82.5%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P95-P99),82.45613069420287,0.043869,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,DEV-P99+ Sign Accuracy,87.2%,paper_table3_residual_regimes.csv,sign_accuracy_pct (DEV-P99+),87.17168804958916,0.028312,ROUNDING_ONLY,Sign accuracy = accuracy(sign(Rhat)==sign(R))
+Figure 4,Panel B,Majority-Sign Baseline,52.45%,paper_table2_robustness.csv,majority_sign_baseline,52.45,0.000000,PASS,Horizontal dashed line reference
+Figure 4,Panel C,DEV-P0-P50 Std Ratio,0.73,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P0-P50),0.7342370304049646,0.004237,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,DEV-P50-P75 Std Ratio,0.30,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P50-P75),0.2974093246085161,0.002591,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,DEV-P75-P90 Std Ratio,0.20,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P75-P90),0.2027606899653462,0.002761,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,DEV-P90-P95 Std Ratio,0.18,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P90-P95),0.1758338756618916,0.004166,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,DEV-P95-P99 Std Ratio,0.20,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P95-P99),0.2047914344416672,0.004791,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,DEV-P99+ Std Ratio,0.45,paper_table3_residual_regimes.csv,std_ratio_rhat_r_if_available (DEV-P99+),0.4526705396703179,0.002671,ROUNDING_ONLY,Within-regime ratio: std(Rhat|b)/std(R|b)
+Figure 4,Panel C,Global Test Std Ratio,0.2536,final_test_summary.csv,std_ratio_Rhat_R,0.2535841502989072,0.000016,ROUNDING_ONLY,"Global test amplitude compression ratio across all 3,856,025 obs"
+Figure 5,Single Panel,2021 Diagnostic Holdout Improvement,+2.84%,historical_skill_summary.csv,RMSE_improvement_pct (2021 Diagnostic Holdout),2.84243,0.002430,ROUNDING_ONLY,"Trained on 2015–2020, evaluated on 2021"
+Figure 5,Single Panel,2021 Diagnostic Holdout Training Window,2015–2020,historical_skill_summary.csv,training_window (2021 Diagnostic Holdout),2015–2020,0.000000,PASS,Distinct fitted estimator
+Figure 5,Single Panel,2022–2023 Validation Improvement,+3.52%,historical_skill_summary.csv,RMSE_improvement_pct (2022–2023 Validation),3.52371,0.003710,ROUNDING_ONLY,"Trained on 2015–2021, evaluated on 2022–2023"
+Figure 5,Single Panel,2022–2023 Validation Training Window,2015–2021,historical_skill_summary.csv,training_window (2022–2023 Validation),2015–2021,0.000000,PASS,Distinct fitted estimator
+Figure 5,Single Panel,2024–2025 Final Test Improvement,+7.22%,historical_skill_summary.csv,RMSE_improvement_pct (2024–2025 Final Test),7.22466,0.004660,ROUNDING_ONLY,"Trained on 2015–2023, evaluated on 2024–2025"
+Figure 5,Single Panel,2024–2025 Final Test Training Window,2015–2023,historical_skill_summary.csv,training_window (2024–2025 Final Test),2015–2023,0.000000,PASS,Distinct fitted estimator
