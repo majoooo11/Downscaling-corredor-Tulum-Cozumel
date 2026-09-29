@@ -25,6 +25,8 @@ Algebraically, if $\hat{R} = 0$, then $\hat{\text{SST}} \equiv \text{SST}_{\text
 > [!NOTE]
 > **Operational Role of MUR SST:** In this study, MUR SST v4.1 serves as the **high-resolution operational reference**, not as absolute ground truth. In-situ buoy networks are scarce in this reef corridor, and satellite infrared measurements are frequently occluded by tropical cloud cover.
 
+![Pipeline and Study Domain](DATASET_TESIS/figures/fig_master_pipeline_A_D.png)
+
 ---
 
 ## 2. Study Area
@@ -36,7 +38,7 @@ The domain covers the coastal and reef ecosystem of the **Tulum–Cozumel sector
 - **Ocean / Land Mask:** 5279 harmonized ocean cells (5,279 marine cells) (63.94% of the domain) and 2,977 land cells (36.06%), derived from GEBCO ocean fraction $\ge 0.5$.
 - **Geographic Scope:** The domain includes the Mesoamerican Barrier Reef reef lagoons, the Cozumel Island shelf, the Cozumel Channel, and deep oceanic basins (>1000 m). *The Yucatán Channel proper is located north of 21.5°N and is not within the study domain.*
 
-![Pipeline and Study Domain](DATASET_TESIS/THESIS_MASTER_A_D/figures/fig_master_pipeline_A_D.png)
+![Pipeline and Study Domain](DATASET_TESIS/figures/figura_baseline_rmse_espacio_temporal_2015_2025.png)
 
 ---
 
@@ -93,7 +95,7 @@ The project was executed across four chronological, methodologically sealed stag
 
 ## 5. Grid Census: 5,279 vs 5,275 Marine Cells
 
-A key methodological distinction documented in [DOCUMENTATION_GAPS_A_D.md](DATASET_TESIS/THESIS_MASTER_A_D/reports/DOCUMENTATION_GAPS_A_D.md) (GAP-01):
+A key methodological distinction documented in [ML_FINAL_SYNTHESIS.md](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md):
 - **Stage B & C Harmonized Cube:** Contains **5,279 ocean cells** (physical ocean census).
 - **Stage D Machine-Learning Domain:** Evaluates **5275 frozen ML cells** (5,275 frozen cells, `frozen_cell_ids.csv`).
 
@@ -207,25 +209,25 @@ When reviewing historical Phase C.2 reports:
   $$\overline{\text{RMSE}}_{\text{daily}} = \frac{1}{4018} \sum_{d=1}^{4018} \text{RMSE}_d$$
   Annual mean daily RMSE ranges from **$0.2724^\circ\text{C}$ (2018)** to **$0.3257^\circ\text{C}$ (2024)**.
 
-By Jensen's inequality, $\text{mean}(\text{RMSE}_d) \le \sqrt{\text{mean}(\text{RMSE}_d^2)}$ ($0.3019^\circ\text{C} \le 0.3426^\circ\text{C}$). These are distinct aggregation statistics and should not be compared as if they were identical metrics (see [FINAL_DOCUMENTATION_AUDIT_A_D.md](DATASET_TESIS/THESIS_MASTER_A_D/reports/FINAL_DOCUMENTATION_AUDIT_A_D.md)).
+By Jensen's inequality, $\text{mean}(\text{RMSE}_d) \le \sqrt{\text{mean}(\text{RMSE}_d^2)}$ ($0.3019^\circ\text{C} \le 0.3426^\circ\text{C}$). These are distinct aggregation statistics and should not be compared as if they were identical metrics (see [fase_c2_reporte.md](DATASET_TESIS/reports/fase_c2_reporte.md) and [ML_FINAL_SYNTHESIS.md](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md)).
 
 ---
 
-## 11. Canonical Documentation Layer: `THESIS_MASTER_A_D`
+## 11. Consolidated Deliverables & Canonical Documentation
 
-The directory [`DATASET_TESIS/THESIS_MASTER_A_D/`](DATASET_TESIS/THESIS_MASTER_A_D/) serves as the single source of truth for all thesis writing, figures, and tables. All documents have been audited against frozen experimental manifests:
+The directory [`DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/) serves as the primary consolidated repository for all paper-ready and thesis-ready figures, tables, and narrative reports. Supporting stage-specific reports are preserved in `DATASET_TESIS/reports/` and respective `ml_results/` subdirectories:
 
-| Master Document | Relative Path | Scope and Purpose | Canonical Status |
+| Master Document / Asset | Relative Path | Scope and Purpose | Canonical Status |
 | :--- | :--- | :--- | :---: |
-| **Master Synthesis** | [`THESIS_MASTER_SYNTHESIS_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_MASTER_SYNTHESIS_A_D.md) | Complete 29-section narrative synthesis of Stages A–D | **AUDITED & FROZEN** |
-| **Methods Master** | [`THESIS_METHODS_MASTER_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_METHODS_MASTER_A_D.md) | Formulations, equations, features, split dates, protocols | **AUDITED & FROZEN** |
-| **Results Master** | [`THESIS_RESULTS_MASTER_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_RESULTS_MASTER_A_D.md) | Audited quantitative tables, metric comparisons, bootstrap | **AUDITED & FROZEN** |
-| **Discussion Notes** | [`THESIS_DISCUSSION_NOTES_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_DISCUSSION_NOTES_A_D.md) | Category I, II, III claims classification & jury Q&A guide | **AUDITED & FROZEN** |
-| **Limitations Master** | [`THESIS_LIMITATIONS_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_LIMITATIONS_A_D.md) | Rigorous inventory of dataset, masking, and model bounds | **AUDITED & FROZEN** |
-| **Gaps Inventory** | [`DOCUMENTATION_GAPS_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/DOCUMENTATION_GAPS_A_D.md) | Full audit of 12 documentation conflicts (GAPs 01–12) | **RESOLVED & FROZEN** |
-| **Reproducibility Map** | [`REPRODUCIBILITY_MAP_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/REPRODUCIBILITY_MAP_A_D.md) | SHA-256 hashes, environments, seeds, and execution map | **AUDITED & FROZEN** |
-| **Thesis Writing Map** | [`THESIS_WRITING_MAP.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_WRITING_MAP.md) | Chapter-by-chapter section mapping for thesis drafting | **AUDITED & FROZEN** |
-| **Final Audit Report** | [`FINAL_DOCUMENTATION_AUDIT_A_D.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/FINAL_DOCUMENTATION_AUDIT_A_D.md) | Official 17-section audit closing report | **AUDITED & FROZEN** |
+| **Master ML Synthesis** | [`ML_FINAL_SYNTHESIS.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md) | Comprehensive narrative synthesis of Machine Learning Stages D31–D36 | **CONSOLIDATED & FROZEN** |
+| **Methods Manuscript** | [`paper_methods_ML.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/paper_methods_ML.md) | Formulations, equations, features, split dates, protocols for publication | **AUDITED & FROZEN** |
+| **Results Manuscript** | [`paper_results_ML.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/paper_results_ML.md) | Quantitative tables, metric comparisons, moving-block bootstrap | **AUDITED & FROZEN** |
+| **Discussion & Claims** | [`paper_discussion_ML.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/paper_discussion_ML.md) | Interpretation boundaries, mechanism discussion & claims classification | **AUDITED & FROZEN** |
+| **Figure Selection Guide** | [`FIGURE_SELECTION_GUIDE.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/FIGURE_SELECTION_GUIDE.md) | Placement and structure of Figures 1–5 for ICITS'27 & Master's Thesis | **CANONICAL** |
+| **Publication Figures** | [`figures/`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/figures/) | High-resolution publication-ready figures (PNG & PDF) | **PAPER-READY** |
+| **Canonical Summary Tables** | [`tables/`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/tables/) | Paper-ready summary CSV tables (Performance, Robustness, Regimes) | **VERIFIED** |
+| **Decadal NetCDF Report** | [`fase_c2_reporte.md`](DATASET_TESIS/reports/fase_c2_reporte.md) | Technical audit of the 2015–2025 harmonized data cube (Stage C.2) | **COMPLETED** |
+| **Satellite Validation Report**| [`validacion_infrarroja_integrada_FINAL.md`](DATASET_TESIS/reports/validacion_infrarroja_integrada_FINAL.md) | Multi-sensor satellite validation audit (VIIRS & MODIS L2P) | **COMPLETED** |
 
 ---
 
@@ -233,55 +235,75 @@ The directory [`DATASET_TESIS/THESIS_MASTER_A_D/`](DATASET_TESIS/THESIS_MASTER_A
 
 ```text
 Downscaling-corredor-Tulum-Cozumel/
-├── README.md                                <- Main canonical repository entry point
+├── README.md                                <- Main repository entry point and executive synthesis
 ├── requirements.txt                         <- Exact Python package dependencies
+├── pyrefly.toml                             <- Environment and runtime configuration
+├── auditar_datos_tesis.py                   <- Global data auditing script
 ├── _archive_readme/                         <- Historical README backups
 │   ├── README_pre_final_update.md
 │   └── README_root_pre_final_sync.md
 │
 ├── DATASET_TESIS/                           <- Main analytical and experimental workspace
-│   ├── README.md                            <- Technical pipeline documentation
+│   ├── README.md                            <- Detailed technical pipeline documentation
+│   ├── config.py                            <- Centralized spatial, temporal and grid configuration
+│   ├── requirements.txt                     <- Pipeline-specific dependencies
 │   ├── _archive_readme/                     <- Technical README backups
-│   │   ├── README_pre_final_update.md
-│   │   └── README_dataset_tesis_pre_final_sync.md
 │   │
-│   ├── outputs/
-│   │   ├── faseC2_2015_2025.nc              <- Harmonized decadal NetCDF cube (540.8 MB)
+│   ├── outputs/                             <- Harmonized NetCDF data cubes
+│   │   ├── faseC2_2015_2025.nc              <- Harmonized decadal NetCDF cube (540.8 MB, 4018 days)
 │   │   └── fase_c2/                         <- Yearly harmonized NetCDF files (2015–2025)
 │   │
-│   ├── ml_dataset/                          <- Analytical ML Parquet splits
+│   ├── ml_dataset/                          <- Analytical ML Parquet splits (5,275 frozen cells)
 │   │   ├── METADATA.md                      <- Dataset construction metadata & provenance
 │   │   ├── train/                           <- train_2015.parquet to train_2021.parquet
 │   │   ├── validation/                      <- validation_2022.parquet, validation_2023.parquet
 │   │   └── test/                            <- test_2024.parquet, test_2025.parquet (CONSUMED)
 │   │
-│   ├── ml_results/
-│   │   ├── E3b_D32/                         <- Model selection & ablation results
-│   │   ├── E3b_D33_external_validation/     <- Validation 2022–2023 summary & models
-│   │   ├── E3b_D34_postvalidation/          <- Diagnostic and micro-audit tables
-│   │   ├── E3b_D35_final_test/              <- Final test manifest, execution log & tables
+│   ├── ml_results/                          <- Machine learning experimental phases and outputs
+│   │   ├── diagnostics_D31/                 <- Stage D31 predictability diagnostics
+│   │   ├── E3b_D32/                         <- Stage D32 model selection & feature ablation
+│   │   ├── E3b_D33_external_validation/     <- Stage D33 validation (2022–2023, D33-B)
+│   │   ├── E3b_D34_postvalidation_diagnostics/ <- Stage D34 sub-regime & micro-audits
+│   │   ├── E3b_D35_final_test/              <- Stage D35 terminal confirmatory test (2024–2025, D35-A)
 │   │   │   ├── final_test_freeze_manifest.json
 │   │   │   ├── final_test_execution_log.json
 │   │   │   ├── frozen_spatial_metadata.csv
-│   │   │   └── tables/                      <- final_test_summary, monthly_metrics, etc.
-│   │   └── E3b_FINAL_SYNTHESIS/             <- Consolidated paper-ready tables & figures
+│   │   │   ├── reports/                     <- Confirmatory test evaluation reports
+│   │   │   └── tables/                      <- Detailed final test metric tables
+│   │   ├── E3b_FINAL_SYNTHESIS/             <- Consolidated paper-ready deliverables
+│   │   │   ├── FIGURE_SELECTION_GUIDE.md    <- Comprehensive figure placement guide
+│   │   │   ├── figures/                     <- Publication-ready figures (PNG & PDF)
+│   │   │   ├── reports/                     <- Final ML synthesis, methods, results & discussion
+│   │   │   └── tables/                      <- Paper-ready canonical summary tables
+│   │   ├── random_forest_E2/                <- Phase D2 Random Forest baseline experiments
+│   │   └── xgboost_E3/                      <- Phase D3 preliminary XGBoost experiments
 │   │
-│   ├── THESIS_MASTER_A_D/                   <- CANONICAL AUDITED & FROZEN DOCUMENTATION
-│   │   ├── reports/                         <- Audited master markdown reports
-│   │   ├── tables/                          <- Verified CSV audit tables & gap evidence
-│   │   ├── figures/                         <- Canonical master figures
-│   │   └── _archive_pre_final_audit/        <- Immutable pre-audit document backups
+│   ├── figures/                             <- Pipeline, baseline E0, and diagnostic figures
+│   │   └── figura_baseline_rmse_espacio_temporal_2015_2025.png
+│   ├── reports/                             <- Satellite validation, NetCDF C2 & data quality audits
+│   ├── modules/                             <- Core modular Python library
+│   │   ├── bathymetry.py                    <- GEBCO bathymetric interpolation
+│   │   ├── coast_distance.py                <- Geodesic/Euclidean distance to coast (UTM 16N)
+│   │   ├── grid_utils.py                    <- Mask harmonizing & grid transformation utilities
+│   │   ├── io_mur.py                        <- MUR SST L4 ingestion & preprocessing
+│   │   ├── io_oisst.py                      <- NOAA OISST L4 ingestion & Strategy A interpolation
+│   │   └── spatial_features.py              <- Spatial covariate extraction
 │   │
-│   └── [Standalone Phase Scripts]           <- Canonical standalone execution scripts
+│   └── [Standalone Phase Scripts]           <- Canonical execution scripts (Stages A–D)
 │       ├── armonizar_datos_tesis.py         <- Stages A & B spatial harmonization
-│       ├── fase_c2_armonizacion_2015_2025.py<- Stage C.2 full harmonization
-│       ├── fase_d1_construir_dataset_ml.py  <- Stage D.1 dataset construction
+│       ├── fase_c2_armonizacion_2015_2025.py<- Stage C.2 decadal cube construction
+│       ├── fase_d1_construir_dataset_ml.py  <- Stage D.1 ML tabular dataset generator
 │       ├── fase_d31_diagnostico_predictibilidad_residual.py <- Stage D31 diagnostics
 │       ├── fase_d32_e3b_tabular.py          <- Stage D32 ablation & selection
 │       ├── fase_d33_external_validation_c0.py <- Stage D33 validation runner
 │       ├── fase_d34_postvalidation_diagnostics.py <- Stage D34 micro-audits
 │       ├── fase_d35_final_test_c0.py        <- Stage D35 final test runner
-│       └── fase_d36_final_synthesis.py      <- Stage D36 synthesis runner
+│       └── fase_d36_final_synthesis.py      <- Stage D36 synthesis & figure generation
+│
+├── GEBCO/                                   <- Raw GEBCO 2026 bathymetric grid & documentation
+├── MUR_ZARR/                                <- MUR SST v4.1 sample granules & Zarr download scripts
+├── OISST/                                   <- NOAA OISST v2.1 raw samples & validation tools
+└── VALIDACION_SATELITAL/                    <- Multi-sensor satellite validation (VIIRS & MODIS L2P)
 ```
 
 ---
@@ -301,7 +323,7 @@ Downscaling-corredor-Tulum-Cozumel/
 | **D36** | COMPLETED |
 | **Final Test** | FINAL TEST = CONSUMED |
 | **ML Model Development** | ML MODEL DEVELOPMENT = CLOSED |
-| **Documentation Layer** | DOCUMENTATION LAYER = AUDITED & FROZEN |
+| **Documentation Layer** | DELIVERABLES CONSOLIDATED & FROZEN |
 
 **Current Work:**
 - ICITS '27 manuscript preparation
@@ -318,25 +340,28 @@ Downscaling-corredor-Tulum-Cozumel/
 - **Primary Seed:** `random_state = 42` (fixed across all randomized routines).
 - **Core Cryptographic Hashes:**
   - `frozen_cell_ids.csv` (5,275 cells): `6f046931d2d8220c1938b1cb06511fe63b5dbc51debed51df8b353006635f5bb`
-  - `frozen_spatial_metadata.csv`: spatial metadata hash = 8cc02f86b14d5bc0bd255bbe896b3d237df5fbf219ce3d1a5eec4283d0a1e365
+  - `frozen_spatial_metadata.csv`: spatial metadata hash = `8cc02f86b14d5bc0bd255bbe896b3d237df5fbf219ce3d1a5eec4283d0a1e365`
 
-### Reproducing Technical Audits
-To inspect the master numerical audit tables:
+### Reproducing Technical Audits & Metrics
+To inspect the canonical deliverables and numerical metrics:
 ```bash
-# View audited numerical metrics (Stages A–D)
-head -n 20 DATASET_TESIS/THESIS_MASTER_A_D/tables/final_numerical_audit.csv
+# View paper-ready performance summary table (Stage D35 Final Test)
+cat DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/tables/paper_table1_final_performance.csv
 
-# View claims audit and replacement policy
-cat DATASET_TESIS/THESIS_MASTER_A_D/tables/final_claims_audit.csv
+# View temporal robustness metrics (Monthly, Daily, Bootstrap)
+cat DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/tables/paper_table2_robustness.csv
 
-# View formal documentation gaps resolution (GAP-01 to GAP-12)
-cat DATASET_TESIS/THESIS_MASTER_A_D/reports/DOCUMENTATION_GAPS_A_D.md
+# View residual-regime dependence metrics
+cat DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/tables/paper_table3_residual_regimes.csv
+
+# View master machine learning synthesis
+cat DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md
 ```
 
 ---
 
 ## 15. Academic Citation & Thesis Defense
 
-For thesis drafting, begin with [`DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_WRITING_MAP.md`](DATASET_TESIS/THESIS_MASTER_A_D/reports/THESIS_WRITING_MAP.md).
+For thesis drafting and conference paper preparation, begin with [`DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/reports/ML_FINAL_SYNTHESIS.md) and the figure roadmap in [`DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/FIGURE_SELECTION_GUIDE.md`](DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/FIGURE_SELECTION_GUIDE.md).
 
-Numerical claims should be traced to the canonical tables identified there rather than copied from historical reports. The `THESIS_MASTER_A_D` layer is the audited and frozen documentation source for Stages A–D. Historical README versions and intermediate reports are preserved only for methodological traceability.
+All quantitative claims should be verified against the canonical tables in `DATASET_TESIS/ml_results/E3b_FINAL_SYNTHESIS/tables/` and stage-specific execution logs (`E3b_D35_final_test/final_test_execution_log.json`).

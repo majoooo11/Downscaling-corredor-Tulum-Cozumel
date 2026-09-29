@@ -1,6 +1,6 @@
 # SST Downscaling Technical Pipeline — Tulum–Cozumel
 
-> Detailed implementation history and technical documentation for Stages A–D. Current canonical scientific status is maintained in [`THESIS_MASTER_A_D/`](THESIS_MASTER_A_D/).
+> Detailed implementation history and technical documentation for Stages A–D. Current canonical scientific status and deliverables are maintained in [`ml_results/E3b_FINAL_SYNTHESIS/`](ml_results/E3b_FINAL_SYNTHESIS/).
 >
 > **Historical traceability notice:** Historical sections below preserve the chronological development of the pipeline. Any references to planned Stage D/E/F workflows in older text have been superseded by the executed D31–D36 workflow.
 >
@@ -8,7 +8,7 @@
 > - **Final Test Evaluation (D35):** Satisfied all seven predeclared D35-A criteria under formal ruling **D35-A — FINAL GENERALIZATION CONFIRMED** (+7.2247% relative RMSE improvement on 2024–2025).
 > - **Final Test Status:** **FINAL TEST = CONSUMED** (no longer blind; cannot be reused for model selection, tuning, or threshold search).
 > - **Machine Learning Status:** **ML MODEL DEVELOPMENT = CLOSED**.
-> - **Documentation Layer:** **DOCUMENTATION LAYER = AUDITED & FROZEN** (see [`THESIS_MASTER_A_D/`](THESIS_MASTER_A_D/)).
+> - **Documentation Layer:** **DELIVERABLES CONSOLIDATED & FROZEN** (see [`ml_results/E3b_FINAL_SYNTHESIS/`](ml_results/E3b_FINAL_SYNTHESIS/)).
 > - **Repository Entry Point:** See [Root README](../README.md) for executive synthesis.
 
 ---
@@ -82,7 +82,7 @@ En lugar de predecir directamente el campo absoluto de alta resolución, el fram
    La SST de alta resolución reconstruida se obtiene como:
    $$\text{SST}_{\text{downscaled}}(t, x, y) = \text{SST}_{\text{BIL}}(t, x, y) + \hat{R}(t, x, y)$$
 
-> **Nota metodológica fundamental:** Las etapas de Machine Learning (Fases D31–D36) ya fueron completamente ejecutadas y cerradas. El modelo oficial seleccionado es `E3b-C0`, el cual confirmó su capacidad de generalización terminal en Final Test 2024–2025 bajo el dictamen formal **D35-A — FINAL GENERALIZATION CONFIRMED** (satisfaciendo los 7 criterios pre-declarados D35-A). **FINAL TEST = CONSUMED**. **ML MODEL DEVELOPMENT = CLOSED**. Toda la evidencia canónica consolidada y congelada se encuentra en [`THESIS_MASTER_A_D/`](THESIS_MASTER_A_D/).
+> **Nota metodológica fundamental:** Las etapas de Machine Learning (Fases D31–D36) ya fueron completamente ejecutadas y cerradas. El modelo oficial seleccionado es `E3b-C0`, el cual confirmó su capacidad de generalización terminal en Final Test 2024–2025 bajo el dictamen formal **D35-A — FINAL GENERALIZATION CONFIRMED** (satisfaciendo los 7 criterios pre-declarados D35-A). **FINAL TEST = CONSUMED**. **ML MODEL DEVELOPMENT = CLOSED**. Toda la evidencia canónica consolidada y congelada se encuentra en [`ml_results/E3b_FINAL_SYNTHESIS/`](ml_results/E3b_FINAL_SYNTHESIS/).
 
 ---
 
@@ -146,35 +146,29 @@ DATASET_TESIS/
 ├── auditar_cambios_abruptos_analysis_error.py # Control temporal Delta AE
 ├── diagnosticar_zero_analysis_error_20160523.py # Diagnóstico puntual 2016-05-23
 ├── modules/                              # Módulos Python especializados
-│   ├── io_mur.py, io_oisst.py, io_gebco.py
-│   ├── grid.py, mask.py, bathymetry.py, coast_distance.py
-│   └── temporal.py, interpolation.py, residual.py, validation.py, plotting.py
+│   ├── io_mur.py, io_oisst.py, bathymetry.py, coast_distance.py
+│   ├── grid_utils.py, spatial_features.py
 ├── outputs/                              # Productos NetCDF intermedios y consolidados
-│   ├── dataset_intermedio_fase_b.nc      # Covariables estáticas (Fase B.1)
-│   ├── faseC1c_2015-01-01.nc             # Prueba unitaria validada (Fase C.1c)
-│   ├── faseC2_2015_2025.nc               # Cubo consolidado 4,018 días (567 MB)
+│   ├── faseC2_2015_2025.nc               # Cubo consolidado 4,018 días (540.8 MB)
 │   └── fase_c2/                          # 11 NetCDFs anuales (faseC2_2015.nc a faseC2_2025.nc)
-├── ml_dataset/                           # Particiones de Machine Learning (Parquet)
-│   ├── metadata/                         # frozen_spatial_metadata.csv (hash 8cc02f86...), splits_manifest.json
-│   ├── train/                            # Parquet particiones de entrenamiento (2015–2020)
-│   ├── validation/                       # Parquet particiones de validación (2021 holdout, 2022–2023 val)
+├── ml_dataset/                           # Particiones de Machine Learning (Parquet, 5,275 celdas)
+│   ├── METADATA.md                       # Proveniencia y especificación de particiones
+│   ├── train/                            # Parquet particiones de entrenamiento (2015–2021)
+│   ├── validation/                       # Parquet particiones de validación (2022–2023)
 │   └── test/                             # Parquet particiones de prueba final (2024–2025) [CONSUMED]
-├── ml_models/
-│   └── E3b_C0/                           # Modelo congelado oficial E3b-C0 (XGBoost 2.1.4)
 ├── ml_results/                           # Resultados canónicos de Machine Learning
-│   ├── D31/                              # Diagnósticos de predictibilidad del residual
-│   ├── D32/                              # Selección de modelos y ablación (6 D32 configurations)
-│   ├── D33/                              # Validación externa 2022–2023 (D33-B — UNCHANGED)
-│   ├── D34/                              # Auditoría diagnóstica de sub-regímenes
-│   ├── D35/                              # Evaluación terminal en Final Test 2024–2025 (D35-A)
-│   └── D36/                              # Síntesis final y consolidación
-├── THESIS_MASTER_A_D/                    # Capa maestra documental auditada y congelada
-│   ├── reports/                          # Reportes maestros (SYNTHESIS, METHODS, RESULTS, etc.)
-│   ├── tables/                           # Tablas CSV canónicas A–D
-│   └── figures/                          # Figuras canónicas de tesis y paper
-├── figures/                              # Figuras históricas de etapas A–C
+│   ├── diagnostics_D31/                  # Diagnósticos de predictibilidad del residual
+│   ├── E3b_D32/                          # Selección de modelos y ablación (6 D32 configurations)
+│   ├── E3b_D33_external_validation/      # Validación externa 2022–2023 (D33-B — UNCHANGED)
+│   ├── E3b_D34_postvalidation_diagnostics/# Auditoría diagnóstica de sub-regímenes
+│   ├── E3b_D35_final_test/               # Evaluación terminal en Final Test 2024–2025 (D35-A)
+│   ├── E3b_FINAL_SYNTHESIS/              # Síntesis final consolidada, figuras y tablas canónicas
+│   ├── random_forest_E2/                 # Experimentos preliminares Random Forest
+│   └── xgboost_E3/                       # Experimentos preliminares XGBoost
+├── figures/                              # Figuras del pipeline, baseline E0 y diagnósticos
+├── reports/                              # Reportes de auditoría satelital, NetCDF C2 y calidad
 ├── analysis_error_historico/             # Cubos recuperados de analysis_error
-└── auditoria_analysis_error/             # Reportes y figuras de auditoría de calidad de datos
+└── auditoria_analysis_error/             # Reportes y figuras de auditoría de incertidumbre MUR
 ```
 
 ---
@@ -216,7 +210,7 @@ DATASET_TESIS/
 | **D36** | Final Synthesis | Consolidación y congelamiento de artefactos listos para publicación y tesis | **COMPLETED** |
 | **Final Test (2024–2025)** | Terminal Confirmatory Test | Conjunto de prueba terminal evaluado una única vez en inferencia ciega | **CONSUMED** |
 | **ML Model Development** | Machine Learning Modeling | Desarrollo, ajuste y selección de modelos de Machine Learning | **CLOSED** |
-| **Documentation Layer** | Capa Maestra de Tesis | Documentación formal consolidada en `THESIS_MASTER_A_D/` | **AUDITED & FROZEN** |
+| **Documentation Layer** | Capa Maestra de Entregables | Documentación formal consolidada en `ml_results/E3b_FINAL_SYNTHESIS/` | **CONSOLIDATED & FROZEN** |
 
 ---
 
