@@ -59,8 +59,4 @@ MÓDULOS CREADOS:
   - modules/validation.py: CREADO
   - modules/plotting.py: CREADO
 
-SIGUIENTE ACCIÓN PROPUESTA:
-  Esperar la revisión y validación del usuario sobre este reporte de inspección.
-  Una vez autorizado, procederemos a la Fase B para el procesamiento espacial 
-  (cuadrícula, máscara oceánica, agregación batimétrica y distancias a la costa).
 ============================================================

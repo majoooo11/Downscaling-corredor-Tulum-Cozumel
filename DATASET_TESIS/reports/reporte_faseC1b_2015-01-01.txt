@@ -51,6 +51,4 @@ JUSTIFICACIÓN:
 3. Cobertura oceánica del 100%: Recupera las 5279 celdas oceánicas completas sin alterar datos sobre tierra, ya que el producto final se enmascara estrictamente con 'ocean_mask_final'.
 4. Cuasi-equivalencia numérica: Las diferencias respecto a la Estrategia B (triangulación Delaunay) son mínimas (MAE = 0.0038°C, P95 = 0.0214°C), confirmando la estabilidad física y matemática del método.
 
-TEXTO METODOLÓGICO CORREGIDO:
-El residual representa las diferencias espaciales entre MUR y OISST interpolado y constituye la señal objetivo que posteriormente deberá aprender el modelo de downscaling.
 ============================================================

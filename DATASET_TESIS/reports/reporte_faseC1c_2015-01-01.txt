@@ -79,8 +79,4 @@ Evidencia de sensibilidad metodológica baja (2015-01-01):
   - Máximo = 0.0626 °C
 
 El residual representa las diferencias espaciales entre MUR y OISST interpolado y constituye la señal objetivo que posteriormente deberá aprender el modelo de downscaling.
-
-RESULTADO:
-
-FASE C.1 APROBADA DEFINITIVAMENTE
 ============================================================
