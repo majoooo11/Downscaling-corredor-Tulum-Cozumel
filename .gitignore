@@ -28,6 +28,7 @@ __pycache__/
 *.joblib
 *.parquet
 
+
 # Datos crudos
 MUR_ZARR/
 OISST/
@@ -41,3 +42,5 @@ DATASET_TESIS/analysis_error_historico/
 # Cachés
 .cache/
 .pytest_cache/
+
+*.txt
