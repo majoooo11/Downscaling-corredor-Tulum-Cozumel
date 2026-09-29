@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Script Reproducible para Generar la Figura Compuesta del Baseline E0 (2015–2025)
+Script Reproducible para Generar la Figura Compuesta de la Línea Base $B_0$ (2015–2025)
 orientada a publicación (Paper).
 
 Paneles:
-  (a) Distribución espacial del RMSE temporal del baseline E0 (SST_BIL vs SST_MUR).
+  (a) Distribución espacial del RMSE temporal de la línea base $B_0$ (SST_BIL vs SST_MUR).
   (b) Evolución temporal del RMSE diario con media móvil de 30 días.
 
 Salidas:
@@ -44,8 +44,8 @@ CAPTION_FILE = FIGURES_DIR / "caption_figura_baseline_rmse.md"
 
 
 def validate_and_compute_metrics(ds: xr.Dataset) -> dict:
-    """Calcula y valida todas las métricas requeridas del baseline E0."""
-    logger.info("Cargando variables y calculando estadísticas del baseline E0...")
+    """Calcula y valida todas las métricas requeridas de la línea base $B_0$."""
+    logger.info("Cargando variables y calculando estadísticas de la línea base B0...")
 
     # Extraer variables y coordenadas
     lats = ds.lat.values
@@ -125,7 +125,7 @@ def validate_and_compute_metrics(ds: xr.Dataset) -> dict:
 def print_console_metrics(m: dict):
     """Imprime el bloque de validación numérica obligatoria en consola."""
     print("\n============================================================")
-    print("VALIDACIÓN NUMÉRICA DEL BASELINE E0 (2015–2025)")
+    print("VALIDACIÓN NUMÉRICA DE LA LÍNEA BASE B0 (2015–2025)")
     print("============================================================")
     print(f"Número de días utilizados: {m['n_days']}")
     print(f"Número de celdas oceánicas válidas: {m['n_ocean']}")
@@ -197,7 +197,7 @@ def generate_baseline_figure(m: dict):
     ax_a.set_xlabel("Longitud (°O)", fontsize=10.5, fontweight="bold")
     ax_a.set_ylabel("Latitud (°N)", fontsize=10.5, fontweight="bold")
     ax_a.set_title(
-        "(a) RMSE espacial del baseline E0 (2015–2025)",
+        r"(a) RMSE espacial de la línea base $B_0$ (2015–2025)",
         fontsize=11.0,
         fontweight="bold",
         pad=10
@@ -246,7 +246,7 @@ def generate_baseline_figure(m: dict):
     ax_b.set_xlabel("Fecha", fontsize=10.5, fontweight="bold")
     ax_b.set_ylabel("RMSE diario (°C)", fontsize=10.5, fontweight="bold")
     ax_b.set_title(
-        "(b) Evolución temporal del RMSE diario del baseline E0",
+        r"(b) Evolución temporal del RMSE diario de la línea base $B_0$",
         fontsize=11.0,
         fontweight="bold",
         pad=10
@@ -283,9 +283,9 @@ def save_caption_file():
     """Guarda el archivo Markdown con el caption oficial para el paper."""
     caption_content = """# Caption Propuesto para el Paper
 
-**Figura X. Caracterización espacio-temporal del desempeño del baseline E0 durante 2015–2025.**  
+**Figura X. Caracterización espacio-temporal del desempeño de la línea base $B_0$ durante 2015–2025.**  
 (a) Distribución espacial del RMSE calculado para cada celda oceánica a partir de las diferencias entre SST_BIL y SST_MUR durante los 4018 días del periodo de estudio. El mapa permite identificar regiones donde la interpolación bilineal presenta mayores discrepancias respecto a la referencia MUR.  
-(b) Evolución temporal del RMSE diario calculado sobre las 5279 celdas oceánicas del dominio. La línea fina representa el RMSE diario y la línea suavizada corresponde a una media móvil de 30 días, permitiendo visualizar la variabilidad temporal del error del baseline a lo largo del periodo 2015–2025.
+(b) Evolución temporal del RMSE diario calculado sobre las 5279 celdas oceánicas del dominio. La línea fina representa el RMSE diario y la línea suavizada corresponde a una media móvil de 30 días, permitiendo visualizar la variabilidad temporal del error de la línea base a lo largo del periodo 2015–2025.
 """
     with open(CAPTION_FILE, "w", encoding="utf-8") as f:
         f.write(caption_content)
